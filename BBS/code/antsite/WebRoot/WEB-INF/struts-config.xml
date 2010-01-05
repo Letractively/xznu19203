@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="error" path="/error.jsp" />
+	</global-forwards>
+	<action-mappings>
+	</action-mappings>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/classes/applicationContext.xml,/WEB-INF/classes/applicationContext-kakaxi.xml,
+					/WEB-INF/classes/applicationContext-ghost.xml,/WEB-INF/classes/applicationContext-evil.xml,/WEB-INF/classes/applicationContext-gun.xml" />
+	</plug-in>
+</struts-config>
+
