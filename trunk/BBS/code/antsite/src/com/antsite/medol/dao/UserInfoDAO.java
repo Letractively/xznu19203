@@ -1,7 +1,7 @@
 package com.antsite.medol.dao;
 
-import com.ansite.medol.po.UserInfo;
 import com.antsite.medol.bo.UserInfoBO;
+import com.antsite.medol.po.UserInfo;
 
 public class UserInfoDAO implements UserInfoBO {
 

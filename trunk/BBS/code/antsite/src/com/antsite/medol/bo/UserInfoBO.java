@@ -1,6 +1,6 @@
 package com.antsite.medol.bo;
 
-import com.ansite.medol.po.UserInfo;
+import com.antsite.medol.po.UserInfo;
 
 public interface UserInfoBO {
 
