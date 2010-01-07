@@ -1,9 +1,9 @@
 package com.antsite.medol.dao;
 
-import com.antsite.medol.bo.UserInfoBO;
 import com.antsite.medol.po.UserInfo;
+import com.antsite.publics.BaseDAO;
 
-public class UserInfoDAO implements UserInfoBO {
+public class UserInfoDAO extends BaseDAO{
 
 	public boolean validate(UserInfo userinfo) {
 		// TODO Auto-generated method stub
@@ -12,6 +12,11 @@ public class UserInfoDAO implements UserInfoBO {
 			flag = true;
 		}
 		return flag;
+	}
+
+	protected Class getObjectClass() {
+		// TODO Auto-generated method stub
+		return UserInfo.class;
 	}
 
 }
