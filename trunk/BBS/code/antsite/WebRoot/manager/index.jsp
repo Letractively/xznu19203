@@ -4,6 +4,10 @@
 <html>
   <head>
     <title>manager.jsp</title>
+    <script src="../jquery/jquery.js" type="text/javascript"></script>
+    <script>
+    	
+    </script>
   </head>
   <body>
   	<center>
