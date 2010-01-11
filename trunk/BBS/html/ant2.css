@@ -1,0 +1,103 @@
+#gbar {
+	FLOAT: left; HEIGHT: 22px
+}
+.gbh {
+	BORDER-TOP: #c9d7f1 1px solid; FONT-SIZE: 1px
+}
+.gbd {
+	BORDER-TOP: #c9d7f1 1px solid; FONT-SIZE: 1px
+}
+.gbh {
+	WIDTH: 100%; POSITION: absolute; TOP: 24px; HEIGHT: 0px
+}
+#gbs {
+	Z-INDEX: 1000; BACKGROUND: #fff; LEFT: 0px; VISIBILITY: hidden; POSITION: absolute; TEXT-ALIGN: left
+}
+.gbm {
+	Z-INDEX: 1000; BACKGROUND: #fff; LEFT: 0px; VISIBILITY: hidden; POSITION: absolute; TEXT-ALIGN: left
+}
+.gbm {
+	BORDER-RIGHT: #36c 1px solid; BORDER-TOP: #c9d7f1 1px solid; Z-INDEX: 1001; BORDER-LEFT: #a2bae7 1px solid; BORDER-BOTTOM: #36c 1px solid
+}
+#guser {
+	PADDING-BOTTOM: 7px! important; TEXT-ALIGN: right
+}
+#gbar {
+	FONT-SIZE: 13px; PADDING-TOP: 0px! important
+}
+#guser {
+	FONT-SIZE: 13px; PADDING-TOP: 0px! important
+}
+.gb1 {
+	MARGIN-RIGHT: 0.5em; ZOOM: 1
+}
+.gb3 {
+	MARGIN-RIGHT: 0.5em; ZOOM: 1
+}
+.gb3i {
+	MARGIN-RIGHT: 0.5em; ZOOM: 1
+}
+.gb3f {
+	MARGIN-RIGHT: 0.5em; ZOOM: 1
+}
+.gb2 {
+	PADDING-RIGHT: 0.5em; DISPLAY: block; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0.2em
+}
+.gb2i {
+	PADDING-RIGHT: 0.5em; DISPLAY: block; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0.2em
+}
+.gb2f {
+	PADDING-RIGHT: 0.5em; DISPLAY: block; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.2em; PADDING-TOP: 0.2em
+}
+A.gb1 {
+	COLOR: #00c! important
+}
+A.gb2 {
+	COLOR: #00c! important
+}
+A.gb3 {
+	COLOR: #00c! important
+}
+A.gb4 {
+	COLOR: #00c! important
+}
+.gb2i {
+	COLOR: #dd8e27! important
+}
+.gb3i {
+	COLOR: #dd8e27! important
+}
+.gb4i {
+	COLOR: #dd8e27! important
+}
+.gb2f {
+	COLOR: #900! important
+}
+.gb4f {
+	COLOR: #900! important
+}
+#gb5 {
+	COLOR: #900! important
+}
+.gb2 {
+	TEXT-DECORATION: none
+}
+.gb2i {
+	TEXT-DECORATION: none
+}
+.gb2f {
+	TEXT-DECORATION: none
+}
+.gb3 {
+	TEXT-DECORATION: none
+}
+.gb3i {
+	TEXT-DECORATION: none
+}
+.gb3f {
+	TEXT-DECORATION: none
+}
+A.gb2:hover {
+	BACKGROUND: #36c; COLOR: #fff! important
+}
+</STYLE>
