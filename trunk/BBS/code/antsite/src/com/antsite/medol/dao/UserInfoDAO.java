@@ -1,7 +1,7 @@
 package com.antsite.medol.dao;
 
 import com.antsite.medol.po.UserInfo;
-import com.antsite.publics.BaseDAO;
+import com.antsite.system.util.BaseDAO;
 
 public class UserInfoDAO extends BaseDAO{
 
