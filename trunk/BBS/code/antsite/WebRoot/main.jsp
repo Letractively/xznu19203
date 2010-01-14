@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<table width="80%" border="0" align="center">
+<table width="90%" border="0" align="center">
   <tr bgcolor="#FFFFFF">
     <td><table width="100%" border="0">
       <tr>
@@ -56,7 +56,7 @@
           <tr>
             <td><table width="100%" border="1">
               <tr>
-                <td>最新贴</td>
+                <td><a href="succ.jsp">最新贴</a></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
