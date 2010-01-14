@@ -11,9 +11,7 @@
 	<property name="connection.driver_class">
 		oracle.jdbc.driver.OracleDriver
 	</property>
-	<property name="dialect">
-		org.hibernate.dialect.Oracle9Dialect
-	</property>
+	<property name="dialect">org.hibernate.dialect.OracleDialect</property>
 	<property name="connection.username">system</property>
 	<property name="connection.password">5155163</property>
 	<property name="hibernate.max_fetch_depth">0</property>
