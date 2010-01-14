@@ -150,7 +150,7 @@
     </table></td>
   </tr>
 </table>
-<hr>
+<hr/>
 <p align="center">copyright</p>
 </body>
 </html>
