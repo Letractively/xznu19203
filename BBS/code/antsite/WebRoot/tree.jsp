@@ -1,14 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@ page language="java" pageEncoding="GBK"%>
-<html>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>TreeMenu</title>
 	<script type="text/javascript">var IMGDIR = 'images';var attackevasive = '0';</script>
 	<link rel="StyleSheet" href="css/style_2_common.css" type="text/css" />
-	<script type="text/javascript" src="js/tree.js"/>
-	<script type="text/javascript" src="js/common.js"/>
-	<script type="text/javascript" src="js/iframe.js"/>
+	<script type="text/javascript" src="js/tree.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/iframe.js"></script>
 	<style type="text/css">HTML {
 	BACKGROUND: #fff
 	}
@@ -58,7 +57,7 @@
 </head>
 
 <body>
-<DIV class=out>
+<div class="out">
 	<script type="text/javascript">
 	var tree = new dzTree('tree');
 	tree.addNode(0, -1, '论坛首页', 'succ.jsp', 'main', true);
@@ -84,7 +83,7 @@
 	tree.addNode(91, 59, '考试一族', 'forumdisplay.php?fid=91', 'main', false);
 	tree.show();
 	</script>
-	</DIV>
+	</div>
 </body>
 
 </html>
