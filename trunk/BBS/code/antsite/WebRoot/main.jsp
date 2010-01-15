@@ -3,6 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>ÒÏ×åÀ´°É</title>
+<style type="text/css">
+	BODY {
+		PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND: #fff; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px
+	}
+</style>
 </head>
 
 <body>
