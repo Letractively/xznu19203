@@ -22,7 +22,7 @@
 				}
         	}
     </script>
-    <style type=text/css>BODY {
+    <style type="text/css">BODY {
 	MARGIN: 0px}
 	</style>
   </head>
