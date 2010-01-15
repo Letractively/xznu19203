@@ -15,7 +15,7 @@
   <tr bgcolor="#FFFFFF">
     <td><table width="100%" border="0">
       <tr>
-        <td><img src="img/msup.gif" width="100%" height="100%"></img></td>
+        <td height="100"><img src="img/msup.gif" width="100%" height="100%"></img></td>
       </tr>
       <tr>
         <td><table width="100%" border="0" cellspacing="2">
@@ -87,9 +87,9 @@
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="1">
+        <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
           <tr>
-            <td bgcolor="#66FFFF">蚁族论语</td>
+            <td background="img/bb_r3_c8.jpg">蚁族论语</td>
           </tr>
           <tr>
             <td>新手报到区</td>
@@ -100,9 +100,9 @@
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="1">
+        <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
           <tr>
-            <td bgcolor="#66FFFF">蚁族天地</td>
+            <td background="img/bb_r3_c8.jpg">蚁族天地</td>
           </tr>
           <tr>
             <td>校园蚁族</td>
@@ -113,9 +113,9 @@
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="1">
+        <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
           <tr>
-            <td bgcolor="#66FFFF">蚁族分享</td>
+            <td background="img/bb_r3_c8.jpg">蚁族分享</td>
           </tr>
           <tr>
             <td>经典美图</td>
@@ -126,9 +126,9 @@
         </table></td>
       </tr>
       <tr>
-      	<td><table width="100%" border="1">
+      	<td><table width="100%" border="1" cellpadding="0" cellspacing="0">
       	  <tr>
-      	    <td bgcolor="#66FFFF">意见建议</td>
+      	    <td background="img/bb_r3_c8.jpg">意见建议</td>
     	    </tr>
       	  <tr>
       	    <td>意见建议</td>
@@ -137,9 +137,9 @@
         </td>
       </tr>
       <tr>
-      	<td><table width="100%" border="1">
+      	<td><table width="100%" border="1" cellpadding="0" cellspacing="0">
       	  <tr>
-      	    <td bgcolor="#FFCCFF">友情链接</td>
+      	    <td background="img/bb_r3_c8.jpg">友情链接</td>
     	    </tr>
       	  <tr>
       	    <td>google</td>
