@@ -1,9 +1,3 @@
-/*
-	[Discuz!] (C)2001-2009 Comsenz Inc.
-	This is NOT a freeware, use is subject to license terms
-
-	$Id: common.js 17535 2009-01-20 05:12:20Z monkey $
-*/
 
 var lang = new Array();
 var userAgent = navigator.userAgent.toLowerCase();

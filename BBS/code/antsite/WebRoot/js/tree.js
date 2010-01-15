@@ -1,9 +1,3 @@
-/*
-	[Discuz!] (C)2001-2009 Comsenz Inc.
-	This is NOT a freeware, use is subject to license terms
-
-	$Id: tree.js 17449 2008-12-22 08:58:53Z cnteacher $
-*/
 
 var icon = new Object();
 icon.root		= IMGDIR + '/tree_root.gif';
