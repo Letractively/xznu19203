@@ -60,8 +60,8 @@
 <div class="out">
 	<script type="text/javascript">
 	var tree = new dzTree('tree');
-	tree.addNode(0, -1, '论坛首页', 'succ.jsp', 'main', true);
-	tree.addNode(99999999, 0, '查看新帖', 'search.php?srchfrom=87000&searchsubmit=yes', 'main', true);
+	tree.addNode(0, -1, '论坛首页', 'main.jsp', 'main', true);
+	tree.addNode(99999999, 0, '查看新帖', 'succ.jsp', 'main', true);
 	tree.addNode(24, 0, '新手入门', 'index.php?gid=24', 'main', false);
 	tree.addNode(57, 0, '蚁族', 'index.php?gid=57', 'main', false);
 	tree.addNode(20, 0, '蚁民', 'index.php?gid=20', 'main', false);
