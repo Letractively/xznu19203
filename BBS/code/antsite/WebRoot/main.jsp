@@ -15,7 +15,7 @@
   <tr bgcolor="#FFFFFF">
     <td><table width="100%" border="0">
       <tr>
-        <td>ͼƬ+LOGO</td>
+        <td><img src="img/msup.gif" width="100%" height="100%"></img></td>
       </tr>
       <tr>
         <td><table width="100%" border="0" cellspacing="2">
