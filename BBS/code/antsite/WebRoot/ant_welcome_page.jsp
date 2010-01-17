@@ -30,8 +30,9 @@ b.rtop b.r4, b.rbottom b.r4...{margin: 0 1px;height: 2px}
 </style>
     <table width="100%" border="0" cellspacing="2" height="100%" style="width: 785px; height: 26px;">
     
-    	<tr>
+    	<tr><text>用户名：</text>
     		<input type="text" name="account"/>
+    		<text>密码：</text>
     		<input type="password" name="password"/>
     		<input type="checkbox" name="autologin"/>
     		<td>自动登录</td>
