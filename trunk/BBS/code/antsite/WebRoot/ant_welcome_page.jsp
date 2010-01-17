@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,19 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
   </head>
   <body>
-  	<!-- 使table显示效果圆角 -->
-<style type="text/css">
-div.Liehuo_net_RoundedCorner...{background: #FFD1FA}
-b.rtop, b.rbottom...{display:block;background: #FFF}
-b.rtop b, b.rbottom b...{display:block;height: 1px;overflow:
-hidden; background: #ffD1FA}
-b.r1...{margin: 0 5px}
-b.r2...{margin: 0 3px}
-b.r3...{margin: 0 2px}
-b.rtop b.r4, b.rbottom b.r4...{margin: 0 1px;height: 2px}
-</style>
+  
     <table width="100%" border="0" cellspacing="2" height="100%" style="width: 785px; height: 26px;">
-    
     	<tr><td>用户名：
     		<input type="text" name="account"/>
     		</td>
@@ -46,13 +35,13 @@ b.rtop b.r4, b.rbottom b.r4...{margin: 0 1px;height: 2px}
     		<td>
     		<input type="button" value="免费注册"/>
     		</td>
-    		<td>-</td>
+    		<td>--</td>
     		<td>游客浏览</td>
     	</tr>	
     </table width="100%" border="0" cellspacing="2" height="100%" style="width: 785px; height: 26px;">
     <table>
     <tr><td>
-    		<img src="img/first_page_img.jpg" width="100%" height="100%">
+    		<img src="img/first_page_img.jpg" width="100%" height="100%"/>
     	</td>
     </tr>	
     </table>   			
