@@ -30,16 +30,24 @@ b.rtop b.r4, b.rbottom b.r4...{margin: 0 1px;height: 2px}
 </style>
     <table width="100%" border="0" cellspacing="2" height="100%" style="width: 785px; height: 26px;">
     
-    	<tr><text>用户名：</text>
+    	<tr><td>用户名：
     		<input type="text" name="account"/>
-    		<text>密码：</text>
+    		</td>
+    		<td>密码：
     		<input type="password" name="password"/>
+    		</td>
+    		<td>
     		<input type="checkbox" name="autologin"/>
-    		<td>自动登录</td>
+    		自动登录
+    		</td>
+    		<td>
     		<input type="button" value="登 录">
+    		</td>
+    		<td>
     		<input type="button" value="免费注册"/>
-    		<text>-</text>
-    		<text>游客浏览</text>
+    		</td>
+    		<td>-</td>
+    		<td>游客浏览</td>
     	</tr>	
     </table width="100%" border="0" cellspacing="2" height="100%" style="width: 785px; height: 26px;">
     <table>
