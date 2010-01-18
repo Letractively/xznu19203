@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>蚁族来吧</title>
+<link rel="StyleSheet" href="css/common.css" type="text/css" />
 <style type="text/css">
 	BODY {
 		PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND: #fff; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-<table width="90%" border="0" align="center">
+<table width="961" border="0" cellpadding="1" cellspacing="1" align="center">
   <tr bgcolor="#FFFFFF">
     <td><table width="100%" border="0">
       <tr>
@@ -87,62 +88,132 @@
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
-          <tr>
-            <td background="img/bb_r3_c8.jpg">蚁族论语</td>
+        <td width="100%"><table width="961" border="0" cellpadding="1" cellspacing="1">
+          <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
+            <td>
+            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            		<tr>
+            			<td>&nbsp;</td>
+            			<td width="80%" align="left" class="ziti1">蚁族论语</td>
+            			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
+            		</tr>
+            	</table>
+            </td>
           </tr>
           <tr>
-            <td>新手报到区</td>
+          	<td>
+	          	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	          		<tr>
+	          			<td align="left"><img src="img/bt1.png"></img></td>
+	          			<td class="ziti4" width="65%" align="left">新手报到<span class="ziti5">(今日：)</span><br/><span class="ziti5">新人注册后，进来招呼声儿，认识下~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="left">为什么我发的帖子被删了<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
           </tr>
           <tr>
-            <td>公告区</td>
+          	<td>
+	          	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	          		<tr>
+	          			<td align="left"><img src="img/bt6.png"></img></td>
+	          			<td class="ziti4" width="65%" align="left">意见征集<span class="ziti5">(今日：)</span><br/><span class="ziti5">蚁族来吧刚刚建起，还存在不少问题，大家多提提意见~~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
+          </tr>
+          <tr>
+            <td>
+	          	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	          		<tr>
+	          			<td align="left"><img src="img/bt2.png"></img></td>
+	          			<td class="ziti4" width="65%" align="left">论坛公告<span class="ziti5">(今日：)</span><br/></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
           </tr>
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
-          <tr>
-            <td background="img/bb_r3_c8.jpg">蚁族天地</td>
+        <td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+          <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
+            <td>
+            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            		<tr>
+            			<td>&nbsp;</td>
+            			<td width="80%" align="left" class="ziti1">蚁族天地</td>
+            			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
+            		</tr>
+            	</table>
+            </td>
           </tr>
           <tr>
-            <td>校园蚁族</td>
+            <td class="ziti4">校园蚁族</td>
           </tr>
           <tr>
-            <td>蚁族故乡</td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
-          <tr>
-            <td background="img/bb_r3_c8.jpg">蚁族分享</td>
-          </tr>
-          <tr>
-            <td>经典美图</td>
-          </tr>
-          <tr>
-            <td>自拍晒图</td>
+            <td class="ziti4">蚁族故乡</td>
           </tr>
         </table></td>
       </tr>
       <tr>
-      	<td><table width="100%" border="1" cellpadding="0" cellspacing="0">
-      	  <tr>
-      	    <td background="img/bb_r3_c8.jpg">意见建议</td>
-    	    </tr>
-      	  <tr>
-      	    <td>意见建议</td>
+        <td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+          <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
+            <td>
+            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            		<tr>
+            			<td>&nbsp;</td>
+            			<td width="80%" align="left" class="ziti1">蚁族分享</td>
+            			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
+            		</tr>
+            	</table>
+            </td>
+          </tr>
+          <tr>
+            <td class="ziti4">经典美图</td>
+          </tr>
+          <tr>
+            <td class="ziti4">自拍晒图</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+      	<td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+      	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
+            <td>
+            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            		<tr>
+            			<td>&nbsp;</td>
+            			<td width="80%" align="left" class="ziti1">意见建议</td>
+            			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
+            		</tr>
+            	</table>
+            </td>
+          </tr>
+          <tr>
+      	    <td class="ziti4">意见建议</td>
     	    </tr>
     	  </table>
         </td>
       </tr>
       <tr>
-      	<td><table width="100%" border="1" cellpadding="0" cellspacing="0">
+      	<td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+      	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
+            <td>
+            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            		<tr>
+            			<td>&nbsp;</td>
+            			<td width="80%" align="left" class="ziti1">友情链接</td>
+            			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
+            		</tr>
+            	</table>
+            </td>
+          </tr>
       	  <tr>
-      	    <td background="img/bb_r3_c8.jpg">友情链接</td>
-    	    </tr>
-      	  <tr>
-      	    <td>google</td>
+      	    <td class="ziti4">google</td>
     	    </tr>
     	  </table>
         </td>
