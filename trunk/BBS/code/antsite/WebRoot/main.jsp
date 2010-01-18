@@ -12,16 +12,16 @@
 </head>
 
 <body>
-<table width="961" border="0" cellpadding="1" cellspacing="1" align="center">
+<table width="960" border="0" cellpadding="0" cellspacing="0" align="center">
   <tr bgcolor="#FFFFFF">
     <td><table width="100%" border="0">
       <tr>
         <td height="100"><img src="img/msup.gif" width="100%" height="100%"></img></td>
       </tr>
       <tr>
-        <td><table width="100%" border="0" cellspacing="2">
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td><table width="100%" border="0">
+            <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td>注册</td>
                 <td>登录</td>
@@ -56,7 +56,7 @@
     </table></td>
   </tr>
   <tr bgcolor="#FFFFFF">
-    <td><table width="100%" border="0" cellspacing="0">
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td><table width="100%" border="0">
           <tr>
@@ -88,10 +88,10 @@
         </table></td>
       </tr>
       <tr>
-        <td width="100%"><table width="961" border="0" cellpadding="1" cellspacing="1">
+        <td width="100%"><table width="960" border="0" cellpadding="0" cellspacing="0" >
           <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td>
-            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            <td height="28">
+            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
             			<td width="80%" align="left" class="ziti1">蚁族论语</td>
@@ -102,7 +102,7 @@
           </tr>
           <tr>
           	<td>
-	          	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	          		<tr>
 	          			<td align="left"><img src="img/bt1.png"></img></td>
 	          			<td class="ziti4" width="65%" align="left">新手报到<span class="ziti5">(今日：)</span><br/><span class="ziti5">新人注册后，进来招呼声儿，认识下~</span></td>
@@ -114,7 +114,7 @@
           </tr>
           <tr>
           	<td>
-	          	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	          		<tr>
 	          			<td align="left"><img src="img/bt6.png"></img></td>
 	          			<td class="ziti4" width="65%" align="left">意见征集<span class="ziti5">(今日：)</span><br/><span class="ziti5">蚁族来吧刚刚建起，还存在不少问题，大家多提提意见~~</span></td>
@@ -126,7 +126,7 @@
           </tr>
           <tr>
             <td>
-	          	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	          		<tr>
 	          			<td align="left"><img src="img/bt2.png"></img></td>
 	          			<td class="ziti4" width="65%" align="left">论坛公告<span class="ziti5">(今日：)</span><br/></td>
@@ -139,10 +139,10 @@
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td>
-            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            <td height="28">
+            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
             			<td width="80%" align="left" class="ziti1">蚁族天地</td>
@@ -160,10 +160,10 @@
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td>
-            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            <td height="28">
+            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
             			<td width="80%" align="left" class="ziti1">蚁族分享</td>
@@ -181,10 +181,10 @@
         </table></td>
       </tr>
       <tr>
-      	<td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+      	<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
       	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td>
-            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            <td height="28">
+            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
             			<td width="80%" align="left" class="ziti1">意见建议</td>
@@ -200,10 +200,10 @@
         </td>
       </tr>
       <tr>
-      	<td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+      	<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
       	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td>
-            	<table width="100%" border="0" cellpadding="1" cellspacing="1">
+            <td height="28">
+            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
             			<td width="80%" align="left" class="ziti1">友情链接</td>
