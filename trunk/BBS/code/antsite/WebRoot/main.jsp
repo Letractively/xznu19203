@@ -100,11 +100,12 @@
             	</table>
             </td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
           	<td>
 	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	          		<tr>
-	          			<td align="left"><img src="img/bt1.png"></img></td>
+	          			<td align="left"><img src="img/bt1.png"></img>&nbsp;</td>
 	          			<td class="ziti4" width="65%" align="left">新手报到<span class="ziti5">(今日：)</span><br/><span class="ziti5">新人注册后，进来招呼声儿，认识下~</span></td>
 	          			<td class="ziti7">12/47</td>
 	          			<td class="ziti5" width="30%" align="left">为什么我发的帖子被删了<span class="ziti6">-12小时前</span></td>
@@ -112,11 +113,12 @@
 	          	</table>
           	</td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
           	<td>
 	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	          		<tr>
-	          			<td align="left"><img src="img/bt6.png"></img></td>
+	          			<td align="left"><img src="img/bt6.png"></img>&nbsp;</td>
 	          			<td class="ziti4" width="65%" align="left">意见征集<span class="ziti5">(今日：)</span><br/><span class="ziti5">蚁族来吧刚刚建起，还存在不少问题，大家多提提意见~~</span></td>
 	          			<td class="ziti7">12/47</td>
 	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
@@ -124,11 +126,12 @@
 	          	</table>
           	</td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
             <td>
 	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	          		<tr>
-	          			<td align="left"><img src="img/bt2.png"></img></td>
+	          			<td align="left"><img src="img/bt2.png"></img>&nbsp;</td>
 	          			<td class="ziti4" width="65%" align="left">论坛公告<span class="ziti5">(今日：)</span><br/></td>
 	          			<td class="ziti7">12/47</td>
 	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
@@ -136,50 +139,104 @@
 	          	</table>
           	</td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
         </table></td>
       </tr>
-      <tr>
-        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+     <tr>
+        <td width="100%"><table width="960" border="0" cellpadding="0" cellspacing="0" >
           <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
             <td height="28">
             	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">蚁族天地</td>
+            			<td width="80%" align="left" class="ziti1">蚁族来吧</td>
             			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
             		</tr>
             	</table>
             </td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
-            <td class="ziti4">校园蚁族</td>
+          	<td>
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	          		<tr>
+	          			<td align="left"><img src="img/bt12.png"></img>&nbsp;</td>
+	          			<td class="ziti4" width="65%" align="left">蚂蚁说事<span class="ziti5">(今日：)</span><br/><span class="ziti5">新人注册后，进来招呼声儿，认识下~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="left">为什么我发的帖子被删了<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
-            <td class="ziti4">蚁族故乡</td>
+          	<td>
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	          		<tr>
+	          			<td align="left"><img src="img/bt4.png"></img>&nbsp;</td>
+	          			<td class="ziti4" width="65%" align="left">蚂蚁上树<span class="ziti5">(今日：)</span><br/><span class="ziti5">蚁族来吧刚刚建起，还存在不少问题，大家多提提意见~~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr>
+            <td>
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	          		<tr>
+	          			<td align="left"><img src="img/bt5.png"></img>&nbsp;</td>
+	          			<td class="ziti4" width="65%" align="left">我爱蚁穴<span class="ziti5">(今日：)</span><br/></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
         </table></td>
       </tr>
       <tr>
-        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <td width="100%"><table width="960" border="0" cellpadding="0" cellspacing="0" >
           <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
             <td height="28">
             	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             		<tr>
             			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">蚁族分享</td>
+            			<td width="80%" align="left" class="ziti1">蚁民</td>
             			<td width="20%" align="center" class="ziti2">分区版主：？？？<img src="img/top_line.png" height="3" width="10"></img></td>
             		</tr>
             	</table>
             </td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
-            <td class="ziti4">经典美图</td>
+          	<td>
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	          		<tr>
+	          			<td align="left"><img src="img/bt10.png"></img>&nbsp;</td>
+	          			<td class="ziti4" width="65%" align="left">蚁民爆料<span class="ziti5">(今日：)</span><br/><span class="ziti5">新人注册后，进来招呼声儿，认识下~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="left">为什么我发的帖子被删了<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
-            <td class="ziti4">自拍晒图</td>
+          	<td>
+	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	          		<tr>
+	          			<td align="left"><img src="img/bt11.png"></img>&nbsp;</td>
+	          			<td class="ziti4" width="65%" align="left">蚂蚁编辑部<span class="ziti5">(今日：)</span><br/><span class="ziti5">蚁族来吧刚刚建起，还存在不少问题，大家多提提意见~~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+          	</td>
           </tr>
-        </table></td>
-      </tr>
+          <tr><td>&nbsp;</td></tr>
       <tr>
       	<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
       	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
@@ -193,12 +250,23 @@
             	</table>
             </td>
           </tr>
+          <tr><td>&nbsp;</td></tr>
           <tr>
-      	    <td class="ziti4">意见建议</td>
+      	    <td>	
+      	    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+	          		<tr>
+	          			<td align="left"><img src="img/bt9.png"></img>&nbsp;</td>
+	          			<td class="ziti4" width="65%" align="left">意见建议<span class="ziti5">(今日：)</span><br/><span class="ziti5">蚁族来吧刚刚建起，还存在不少问题，大家多提提意见~~</span></td>
+	          			<td class="ziti7">12/47</td>
+	          			<td class="ziti5" width="30%" align="center">蚁族来吧改进意见火热征集中~~<span class="ziti6">-12小时前</span></td>
+	          		</tr>
+	          	</table>
+      	    </td>
     	    </tr>
     	  </table>
         </td>
       </tr>
+      <tr><td>&nbsp;</td></tr>
       <tr>
       	<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
       	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
@@ -213,18 +281,27 @@
             </td>
           </tr>
       	  <tr>
-      	    <td class="ziti4">google</td>
+      	    <td>	
+      	    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      	    	<tr><td>&nbsp;</td></tr>
+	          		<tr>
+	          			<td align="left"><img src="img/bt6.png"></img>&nbsp;Google</td>
+	          		</tr>
+	          	</table>
+      	    </td>
     	    </tr>
     	  </table>
         </td>
       </tr>
       <tr>
       	<td>&nbsp;
-        	
         </td>
       </tr>
     </table></td>
   </tr>
+</table>
+</td>
+</tr>
 </table>
 <hr/>
 <p align="center">copyright</p>
