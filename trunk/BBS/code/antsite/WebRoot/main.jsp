@@ -1,309 +1,148 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="java" pageEncoding="GBK"%>
+<%@ include file="application.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>��������</title>
-<link rel="StyleSheet" href="css/common.css" type="text/css" />
-<style type="text/css">
-	BODY {
-		PADDING-RIGHT: 2px; PADDING-LEFT: 2px; BACKGROUND: #fff; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-TOP: 2px
-	}
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<title>无标题文档</title>
 </head>
 
 <body>
-<table width="960" border="0" cellpadding="0" cellspacing="0" align="center">
-  <tr bgcolor="#FFFFFF">
-    <td><table width="100%" border="0">
-      <tr>
-        <td height="100"><img src="img/msup.gif" width="100%" height="100%"></img></td>
-      </tr>
-      <tr>
-        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-              <tr>
-                <td>ע��</td>
-                <td>��¼</td>
-              </tr>
-            </table></td>
-            <td width="50%">&nbsp;</td>
-            <td width="35%"><table width="100%" border="1">
-              <tr>
-                <td>��̳��ҳ</td>
-                <td>��ǽ</td>
-                <td>����ͬ�ǻ�</td>
-                <td>����</td>
-              </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>
-        	<input type="text" id="" name="" size="15"/>
-            <input type="password" id="" name="" size="15"/>
-            <input type="button" id="" name="" value="��¼"/>
-        </td>
-        <td width="30%">&nbsp;</td>
-        <td><p>���գ����գ�����գ�������</p>
-          <p>���⣺���ӣ���Ա����ӭ�»�Ա��</p></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr bgcolor="#FFFFFF">
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td><table width="100%" border="0">
-          <tr>
-            <td><table width="100%" border="1">
-              <tr>
-                <td><a href="succ.jsp">������</a></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-              </tr>
-            </table></td>
-            <td><table width="100%" border="1">
-              <tr>
-                <td>���»ظ�</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-              </tr>
-            </table></td>
-            <td><table width="100%" border="1">
-              <tr>
-                <td>��������</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-              </tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td width="100%"><table width="960" border="0" cellpadding="0" cellspacing="0" >
-          <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td height="28">
-            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-            		<tr>
-            			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">��������</td>
-            			<td width="20%" align="center" class="ziti2">����������������<img src="img/top_line.png" height="3" width="10"></img></td>
-            		</tr>
-            	</table>
+	<div id="header"></div>
+	<div>
+	    <ul id="nav">
+	    	<li><a href="#">首页</a></li>
+	        <li><a href="#">导航</a></li>
+	        <li><a href="#">爱墙</a></li>
+	        <li><a href="#">帮助</a></li>
+	    </ul>
+    </div>
+    <div id="main">
+		<div id="left">
+	    	<input type="text" id="" name="" class="tp"/>
+	        <input type="password" id="" name="" class="tp"/>
+	        <input type="button" id="" name="" value="登录" />
+	        <input type="button" id="" name="" value="注册" />
+	    </div>
+	    <div id="right">
+	    	<p>会员：100&nbsp;在线：900</p>
+	        <p>今日新帖：200&nbsp;今日注册：300</p>
+	    </div>
+	</div>
+	<table id="attention">
+    	<tr>
+        	<td>
+            	<div id="atten_left">
+                	<p class="atten_new">最新贴</p>
+                    <ul id="atten_nav">
+                    	<li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                    </ul>
+                </div>
             </td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-          	<td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt1.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">���ֱ���<span class="ziti5">(���գ�)</span><br/><span class="ziti5">����ע��󣬽����к���������ʶ��~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="left">Ϊʲô�ҷ������ӱ�ɾ��<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-          	<td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt6.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">�������<span class="ziti5">(���գ�)</span><br/><span class="ziti5">�������ɸոս��𣬻����ڲ������⣬��Ҷ��������~~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="center">�������ɸĽ��������������~~<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
             <td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt2.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">��̳����<span class="ziti5">(���գ�)</span><br/></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="center">�������ɸĽ��������������~~<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-        </table></td>
-      </tr>
-     <tr>
-        <td width="100%"><table width="960" border="0" cellpadding="0" cellspacing="0" >
-          <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td height="28">
-            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-            		<tr>
-            			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">��������</td>
-            			<td width="20%" align="center" class="ziti2">����������������<img src="img/top_line.png" height="3" width="10"></img></td>
-            		</tr>
-            	</table>
+            	<div id="atten_center">
+                	<p class="atten_new">最热帖</p>
+                    <ul id="atten_nav">
+                    	<li><a href="#">京哈空间的划分爱的世界哈利交</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                    </ul>
+                </div>
             </td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-          	<td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt12.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">����˵��<span class="ziti5">(���գ�)</span><br/><span class="ziti5">����ע��󣬽����к���������ʶ��~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="left">Ϊʲô�ҷ������ӱ�ɾ��<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-          	<td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt4.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">��������<span class="ziti5">(���գ�)</span><br/><span class="ziti5">�������ɸոս��𣬻����ڲ������⣬��Ҷ��������~~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="center">�������ɸĽ��������������~~<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
             <td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt5.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">�Ұ���Ѩ<span class="ziti5">(���գ�)</span><br/></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="center">�������ɸĽ��������������~~<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td width="100%"><table width="960" border="0" cellpadding="0" cellspacing="0" >
-          <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td height="28">
-            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-            		<tr>
-            			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">����</td>
-            			<td width="20%" align="center" class="ziti2">����������������<img src="img/top_line.png" height="3" width="10"></img></td>
-            		</tr>
-            	</table>
+            	<div id="atten_right">
+                	<p class="atten_new">最多回复</p>
+                    <ul id="atten_nav">
+                    	<li><a href="#">大厦了解到发技术的飞机啊利交</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                        <li><a href="#">京哈肯定就上了飞机安抚绝对是</a></li>
+                    </ul>
+                </div>
             </td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-          	<td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt10.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">������<span class="ziti5">(���գ�)</span><br/><span class="ziti5">����ע��󣬽����к���������ʶ��~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="left">Ϊʲô�ҷ������ӱ�ɾ��<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-          	<td>
-	          	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt11.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">���ϱ༭��<span class="ziti5">(���գ�)</span><br/><span class="ziti5">�������ɸոս��𣬻����ڲ������⣬��Ҷ��������~~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="center">�������ɸĽ��������������~~<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-          	</td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-      <tr>
-      	<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-      	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td height="28">
-            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-            		<tr>
-            			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">�������</td>
-            			<td width="20%" align="center" class="ziti2">����������������<img src="img/top_line.png" height="3" width="10"></img></td>
-            		</tr>
-            	</table>
-            </td>
-          </tr>
-          <tr><td>&nbsp;</td></tr>
-          <tr>
-      	    <td>	
-      	    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-	          		<tr>
-	          			<td align="left"><img src="img/bt9.png"></img>&nbsp;</td>
-	          			<td class="ziti4" width="65%" align="left">�������<span class="ziti5">(���գ�)</span><br/><span class="ziti5">�������ɸոս��𣬻����ڲ������⣬��Ҷ��������~~</span></td>
-	          			<td class="ziti7">12/47</td>
-	          			<td class="ziti5" width="30%" align="center">�������ɸĽ��������������~~<span class="ziti6">-12Сʱǰ</span></td>
-	          		</tr>
-	          	</table>
-      	    </td>
-    	    </tr>
-    	  </table>
-        </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-      <tr>
-      	<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-      	  <tr style="background: url('img/tablehead.png');background-repeat: no-repeat;width: 960;height: 28">
-            <td height="28">
-            	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-            		<tr>
-            			<td>&nbsp;</td>
-            			<td width="80%" align="left" class="ziti1">��������</td>
-            			<td width="20%" align="center" class="ziti2">����������������<img src="img/top_line.png" height="3" width="10"></img></td>
-            		</tr>
-            	</table>
-            </td>
-          </tr>
-      	  <tr>
-      	    <td>	
-      	    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-      	    	<tr><td>&nbsp;</td></tr>
-	          		<tr>
-	          			<td align="left"><img src="img/bt6.png"></img>&nbsp;Google</td>
-	          		</tr>
-	          	</table>
-      	    </td>
-    	    </tr>
-    	  </table>
-        </td>
-      </tr>
-      <tr>
-      	<td>&nbsp;
-        </td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-</td>
-</tr>
-</table>
-<hr/>
-<p align="center">copyright</p>
+        </tr>
+    </table>
+    <br/>
+    <div id="first">
+    	<div id="head">&nbsp;我是菜鸟</div>
+        <table id="content" border="1px" bordercolor="#36F" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;" frame="void">
+        	<tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <div id="first">
+    	<div id="head">&nbsp;他是菜鸟</div>
+        <table id="content" border="1px" bordercolor="#36F" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;" frame="void">
+        	<tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <div id="first">
+    	<div id="head">&nbsp;欢迎菜鸟</div>
+        <table id="content" border="1px" bordercolor="#36F" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;" frame="void">
+        	<tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <div id="first">
+    	<div id="head">&nbsp;你是菜鸟</div>
+        <table id="content" border="1px" bordercolor="#36F" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;" frame="void">
+        	<tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+            <tr>	
+            	<td>结婚登记咖啡黑客基地哈空间符合的离开旧爱</td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <div style="height:37px; color:#fff;text-align:center; line-height:37px;width:770;background-color:#273EDA;bottom:0px;_bottom:-1px;">
+    	Copyright @ 2009	ANTSITE, Inc. All rights reserved.</div>
+	</div>
+    
 </body>
 </html>

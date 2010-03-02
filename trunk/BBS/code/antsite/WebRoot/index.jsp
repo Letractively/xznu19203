@@ -3,69 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 <title>无标题文档</title>
 </head>
-<style>
-	body{
-		font-family:Arial, Helvetica, sans-serif;
-		font-size:12px;
-		margin:0px auto;
-		height:auto;
-		width:750px;
-		border:1px solid #000000;
-		margin-top:200px;
-		}
-	#left{
-		width:550px;
-		height:300px;
-		background-image:url(myimage/welcome.jpg);
-		background-repeat:no-repeat;
-		margin:0px 0px 3px 0px;
-		float:left;
-		}
-	#right{
-		width:200px;
-		height:300px;
-		background-image:url(myimage/bgcolor.jpg);
-		background-repeat:no-repeat;
-		margin:0px 0px 0px 0px;
-		float:right;
-		}
-	.text{
-		width:150px;
-		height:15px;
-		background-color:#CFF;
-		}
-	.positive{
-		background-color:#E6EFC2;
-		border:1px solid #C6D880;
-    	color:#96F;
-	}
-	.font{
-		color:#96F;
-		}
-	a:link{
-		color:#FF0000;
-		text-decoration:underline;
-		}
-	a:visited{
-		color:#00FF00;
-		text-decoration:none
-		}
-	a:hover {
-		color:#000000;
-		text-decoration:none;
-    }
-    a:active {
-		color:#FFFFFF;
-		text-decoration:none;
-    }
-
-</style>
 <body>
 	<div>
     	<div id="left"></div>
         <div id="right">
+        <form>
         	<table width="100%" height="40%" border="0" cellpadding="0" cellspacing="0">
             	<tr>
                 	<td colspan="2"></td>
@@ -82,13 +27,14 @@
                 	<td colspan="2" align="center">
                     	<input type="button" id="" name="" value="登录" class="positive"/>
                         &nbsp;
-                        <input type="button" id="" name="" value="重置" class="positive"/>
+                        <input type="reset" id="" name="" value="重置" class="positive"/>
                     </td>
                 </tr>
                 <tr>
-                	<td colspan="2" align="right"><p><a href="#">会员注册</a> <a href="#">游客浏览</a></p></td>
+                	<td colspan="2" align="right"><p><a href="#">会员注册</a> <a href="main.jsp">游客浏览</a></p></td>
                 </tr>
             </table>
+        </form>
         </div>
     </div>
 </body>
