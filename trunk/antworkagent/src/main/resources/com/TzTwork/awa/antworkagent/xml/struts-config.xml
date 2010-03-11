@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <controller>
+		<set-property property="processorClass" value="org.springframework.web.struts.DelegatingRequestProcessor"/>
+	</controller>
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" 
+			value="classpath*:com/TzTwork/awa/antworkagent/xml/beans.xml,classpath*:com/TzTwork/awa/antworkagent/web/**/*AppCon.xml,classpath*:com/TzTwork/awa/antworkagent/web/**/applicationContext.xml"/>
+	</plug-in>
+</struts-config>
+
