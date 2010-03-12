@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ include file="application.jsp"%>
+<%@ page import="com.TzTwork.awa.antworkagent.po.*" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,10 +21,17 @@
     </div>
     <div id="main">
 		<div id="left">
-	    	<input type="text" id="" name="" class="tp"/>
-	        <input type="password" id="" name="" class="tp"/>
-	        <input type="button" id="" name="" value="登录" />
-	        <input type="button" id="" name="" value="注册" />
+		<c:choose>
+			<c:when test="${user == null}">
+				<input type="text" id="" name="" class="tp"/>
+		        <input type="password" id="" name="" class="tp"/>
+		        <input type="button" id="" name="" value="登录" />
+		        <input type="button" id="" name="" value="注册" />
+	    	</c:when>
+	    	<c:otherwise>
+	    		<p>欢迎${user.username}</p>
+	    	</c:otherwise>
+	    </c:choose>
 	    </div>
 	    <div id="right">
 	    	<p>会员：100&nbsp;在线：900</p>
