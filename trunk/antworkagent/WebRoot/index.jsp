@@ -13,59 +13,96 @@
 				url:"loginAction.antwork?method=loginValidate",
 				data:"username="+$('#username').val()+"&password="+$('#password').val(),
 				type:"POST",
-				beforeSend:function(){
-					new screenClass().lock();
-				},
+				beforeSend:function(){},
 				success:function(data){
-					if(data!=null && data!=""){
-						alert(data);
-						new screenClass().unlock();
+					if(data==1){
+						$('#msg').html("正在登陆...");
+						lock();
+						setTimeout("to()",3000);
+						}
+					if(data==0){
+						$('#msg').html("用户名或密码错误！");
+						lock();
 						}
 					}
 				});
 			return false;
 			});
+		$('#close').click(function(){
+			unlock();
+			});
 		});
-    var screenClass = function()
-    {
-        /// 解锁
-        this.unlock = function()
-        {
-            var divLock = document.getElementById("divLock");
-            if(divLock == null) return;
-            document.body.removeChild(divLock);
-        };
-        
-        /// 锁屏
-        this.lock = function()
-        {
-            var sWidth,sHeight;
-            var imgPath = "myimage/bgcolor.gif";
-            sWidth  = screen.width - 20;
-            sHeight = screen.height- 170;
-            
-            var bgObj=document.createElement("div");
-            bgObj.setAttribute("id","divLock");
-            bgObj.style.position="absolute";
-            bgObj.style.top="0";
-            bgObj.style.background="#cccccc";
-            bgObj.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75";
-            bgObj.style.opacity="0.6";
-            bgObj.style.left="0";
-            bgObj.style.width=sWidth + "px";
-            bgObj.style.height=sHeight + "px";
-            bgObj.style.zIndex = "100";
-            document.body.appendChild(bgObj);
-            var html = "<table border=\"0\" width=\""+sWidth+"\" height=\""+sHeight+"\"><tr><td valign=\"middle\" align=\"center\"><image src=\""+imgPath+"\"></td></tr></table>";
-            bgObj.innerHTML = html;
-            // 解锁
-            bgObj.onclick = function()
-            {
-                 //new screenClass().unlock();
-            }
-        };
-    }
+	function lock(){
+		 $(".backgroundDiv").css({"opacity":"0.5"}).fadeIn('normal');		
+		 var scrollWidth = document.documentElement.clientWidth;
+		 var scrollHeight = document.documentElement.clientHeight;
+		 var divWidth = $(".info").width();
+		 var divHeight = $(".info").height();
+		 var divLeft = scrollWidth/2-divWidth/2;
+		 var divTop = scrollHeight/2-divHeight;
+		 $(".info").css({"position":"absolute","top":divTop,"left":divLeft}).fadeIn('normal');
+		}
+	function unlock(){
+		$(".info").fadeOut('normal');
+		$(".backgroundDiv").fadeOut('normal');
+		$('#username').val("");
+		$('#password').val("");
+		}
+	function to(){
+		document.location.href="loginAction.antwork?method=login";
+		}
 </script>
+
+<style>
+  .backgroundDiv{ 
+  	width:100%; 
+  	height:100%; 
+  	display:none; 
+  	z-index:10; 
+  	background-color:#333333; 
+  	position:absolute; 
+  	top:0px; 
+  	left:0px;
+  }
+  .info{ 
+	display:none;
+	z-index:10000;
+	background-color:#333;
+	width:375px;	
+	min-height:150px;
+	border:1px solid #666;
+	padding:0px;
+	/* CSS3 styling for latest browsers */
+	-moz-box-shadow:0 0 90px 5px #000;
+	-webkit-box-shadow: 0 0 90px #000;
+	}
+  #close{ 
+	background-image:url(myimage/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+	}
+	
+   #alt{
+   	position:absolute;
+	top:50px;
+	right:15px;
+	font-size:12px;
+	color:#FFFFFF;
+	width:150px;
+   }
+   #msg{
+	position:absolute;
+	top:80px;
+	right:15px;
+	font-size:15px;
+	color:#FFFFFF;
+	width:150px;
+	}
+</style>
 </head>
 <body>
 	<div>
@@ -92,11 +129,21 @@
                     </td>
                 </tr>
                 <tr>
-                	<td colspan="2" align="right"><p><a href="#">会员注册</a> <a href="main.jsp">游客浏览</a></p></td>
+                	<td colspan="2" align="right"><p><a href="#">会员注册</a> <a href="loginAction.antwork?method=visitor_login">游客浏览</a></p></td>
                 </tr>
             </table>
         </form>
         </div>
     </div>
+    <div class="backgroundDiv"></div>
+	
+	<div class="info">
+	   <div id="close"></div>
+	   <img src="myimage/ni.png"/>
+	   <div>
+	   	<div id="alt">提示消息</div>
+	   	<div id="msg"></div>
+	   </div>
+	</div>
 </body>
 </html>
