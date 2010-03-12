@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -31,21 +32,39 @@ public class LoginAction extends DispatchAction{
 	
 	public ActionForward loginValidate(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String msg = "";
+		HttpSession session = request.getSession();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.out.println(username);
-		List<Userinfo> userinfo_list = userManager.findAll();
-		for(Userinfo u:userinfo_list){
-			if(u.getUsername().equals(username) && u.getPassword().equals(password)){
-				return mapping.findForward("succ");
-			}
+		Userinfo userinfo = userManager.validateUser(username, password);
+		if(userinfo!=null){
+			session.setAttribute("user", userinfo);
+			msg = "1";
+		}else{
+			msg = "0";		
 		}
-		String msg = "用户名或密码错误!";
 		out.println(msg);
 		return null;
+	}
+	
+	public ActionForward login(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		//登陆成功
+		HttpSession session = request.getSession();
+		Userinfo userinfo = (Userinfo) session.getAttribute("user");
+		request.setAttribute("user", userinfo);
+		return mapping.findForward("succ");
+	}
+	
+	public ActionForward visitor_login(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response){
+		HttpSession session = request.getSession();
+		session.invalidate();//清空session
+		return mapping.findForward("visitor");
 	}
 	
 }
