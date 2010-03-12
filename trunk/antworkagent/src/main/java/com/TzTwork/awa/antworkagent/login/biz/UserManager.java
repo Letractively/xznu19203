@@ -14,9 +14,11 @@ public class UserManager extends BaseDAO{
 	
 	public Userinfo validateUser(String username,String password){
 		Userinfo userinfo = null;
-		String hql = "select userinfo from userinfo where username="+username + "and password=" + password;
+		String hql = "select u from Userinfo as u where u.username="+"'"+username+"'" + " and u.password=" + "'"+password+"'";
 		List result = queryByHQL(hql);
-		
+		if(result.size()>0){
+			userinfo = (Userinfo) result.get(0);
+		}
 		return userinfo;
 	}
 
