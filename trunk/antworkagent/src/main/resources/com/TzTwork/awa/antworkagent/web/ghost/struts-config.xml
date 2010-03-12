@@ -10,6 +10,7 @@
 	<action-mappings>
 		<action path="/loginAction" name="loginForm" scope="request" parameter="method" validate="false">
 			<forward name="succ" path="/main.jsp"></forward>
+			<forward name="visitor" path="/main.jsp"></forward>
 		</action>
 		<action path="/managerAction" name="managerForm" scope="request" parameter="method" validate="false">
 			<forward name="userList" path="/managerAction.antwork?method=showUserinfo"></forward>
