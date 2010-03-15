@@ -8,6 +8,8 @@
   <body>
   	<center>
   	succ
+  	<br/>
+  	<a href="main.jsp">back</a>
   	</center>
   </body>
 </html>
