@@ -34,7 +34,7 @@
                     </td>
                 </tr>
                 <tr>
-                	<td colspan="2" align="right"><p><a href="#">会员注册</a> <a href="loginAction.antwork?method=visitor_login">游客浏览</a></p></td>
+                	<td colspan="2" align="right"><p><a href="register.jsp">会员注册</a> <a href="loginAction.antwork?method=visitor_login">游客浏览</a></p></td>
                 </tr>
             </table>
         </form>
