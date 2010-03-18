@@ -23,7 +23,10 @@
 	</property>
 	
 	<mapping resource="com/TzTwork/awa/antworkagent/po/Userinfo.hbm.xml" />
-
+	<mapping resource="com/TzTwork/awa/antworkagent/po/Office.hbm.xml" />
+	<mapping resource="com/TzTwork/awa/antworkagent/po/Reversion.hbm.xml" />
+	<mapping resource="com/TzTwork/awa/antworkagent/po/Space.hbm.xml" />
+	<mapping resource="com/TzTwork/awa/antworkagent/po/Subject.hbm.xml" />
 </session-factory>
 
 </hibernate-configuration>
