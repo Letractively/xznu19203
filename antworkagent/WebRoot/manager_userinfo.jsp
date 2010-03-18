@@ -73,7 +73,8 @@
         	<div id="left">
             	<table width="100%" height="100%" border="1" bordercolor="#4c94ea" cellpadding="0" cellspacing="0" frame="rhs">
         			<tr>
-            		<td style="border:none">&nbsp;</td>
+            		<td style="border:none">&nbsp;
+            		</td>
             		</tr>
        			 </table>
             </div>
