@@ -18,6 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- 决定receiver接收什么事件 -->
+        <receiver android:name=".TestReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT"/>
+            </intent-filter>
+        </receiver>
+            
     </application>
 
 </manifest>
