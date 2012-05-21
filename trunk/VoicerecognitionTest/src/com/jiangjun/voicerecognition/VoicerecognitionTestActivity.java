@@ -46,7 +46,7 @@ public class VoicerecognitionTestActivity extends Activity implements
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.speekButton) {
-
+			startVoiceRecognitionActivity();
 		}
 	}
 
@@ -70,12 +70,16 @@ public class VoicerecognitionTestActivity extends Activity implements
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		if (requestCode == VOICE_RECOGNITION_REQUEST_CODE
-				&& requestCode == RESULT_OK) {
+				&& resultCode == RESULT_OK) {
 			// 取得语音的字符
 			ArrayList matches = data
 					.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 			mList.setAdapter(new ArrayAdapter(this,
-					R.layout.my_simple_list_item));
+					R.layout.my_simple_list_item,matches));
+			for(int i=0;i<matches.size();i++)
+			{
+				System.out.println("=======================" + matches.get(i));
+			}
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 
