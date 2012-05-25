@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 public class VoicerecognitionTestActivity extends Activity implements
 		OnClickListener {
-
+/**
+ * 修改修改修改
+ */
 	private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 	private ListView mList;
 	private Button speekButton;
