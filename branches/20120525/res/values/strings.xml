@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">语音搜索测试</string>
+    <string name="app_name">VoicerecognitionTest</string>
+    <string name="speekButton">点击说话</string>
+
+    <drawable name="black">#000000</drawable>
+
+</resources>
