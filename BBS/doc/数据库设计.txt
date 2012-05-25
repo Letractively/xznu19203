@@ -1,118 +1,0 @@
-V1.0 
-2010-01-22 , initialition DB for antBBS.
-
-论坛模块表:
-antForum (
-  forumID	integer	not null,	//模块ID,主键
-  name		varchar2(255),		//模块名称,最大长度255个字符
-  description	varchar2(2000),		//模块描述,最大长度2000个字符
-  modifiedDate	date,			//最后修改时间
-  creationDate	date			//建立时间
-);
-
-论坛模块属性表:
-antForumProp (
-  forumID	integer not null,	//模块ID
-  name		varchar2(30) not null,	//属性名称
-  propValue	varchar2(255) not null	//属性值
-);					//(forumID,name) 主键
-
-
-论坛帖子表:
-antThread (
-  threadID      integer not null,	//帖子ID,主键
-  forumID       integer not null,	//帖子所属模块ID
-  rootMessageID integer not null,	//帖子根
-  approved      integer not null,	//帖子审批,0--OK,其他( > 0)--未过审批原因
-  readcnt       integer not null,	//帖子阅读次数
-  typeID        integer not null,	//帖子类型ID
-  sticky        integer not null,	//置顶,含顺序,数字越大优先权越低,0为未置顶
-  closedflag    integer not null,	//是否结贴,0-未结贴,1-结贴
-  creationDate  date not null,		//帖子创建日期时间  modifiedDate  date not null		//帖子最后修改日期时间);
-
-论坛帖子类型表:
-antThreadType (
-  typeID	integer not null,	//帖子类型ID,主键
-  name		varchar2(25) not null	//帖子类型名声,最大25个字符
-);
-
-论坛回帖表:
-antMessage (  
-  messageID     integer not null,	//回帖ID, 主键
-  threadID      integer default -1 not null,	//回帖所属帖子ID,
-  subject       varchar2(255),		//回帖主题
-  userID        integer not null,	//回帖所属用户ID
-  body          clob,			//回帖内容
-  modifiedDate  date not null,		//回帖最后修改时间
-  creationDate  date not null,		//回帖创建日期时间
-  approved      integer not null,	//回帖审批,,0--OK,其他( > 0)--未过审批原因
-  ranking       integer null,		//回帖得分(???)
-);
-
-论坛回帖属性表:
-antMessageProp (
-  messageID	integer not null,	//回帖ID
-  name		varchar2(30) not null,	//回帖属性名称
-  propValue	varchar2(255) not null	//回帖属性值
-);					//(messageID,name) 主键
-
-论坛组表:
-antGroup (
-  groupID	integer not null,	//组ID, 主键
-  name		varchar2(50) not null,	//组名称
-  description	varchar2(255),		//组描述
-);
-
-论坛组权限表:
-antGroupPerm (
-  forumID	integer not null,	//论坛模块ID
-  groupID	integer not null,	//组ID
-  permission	integer not null	//当前组,当前模块,权限
-);					//(forumID,groupID) 为主键
-
-论坛用户组表:
-antGroupUser (
-  groupID	integer not null,	//组ID
-  userID	integer not null,	//用户ID
-  administrator	integer not null	//是否为改组管理员
-);
-
-论坛用户表:
-antUser (
-  userID	integer not null,	//用户ID, 主键
-  name		varchar2(50),		//用户昵称
-  username	varchar2(30) not null,	//用户名
-  password	varchar2(30) not null, 	//用户密码
-  email		varchar2(50)		//用户邮箱,(验证密码?)
-);
-
-论坛权限表:
-antUserPerm (
-  forumID	integer not null,	//论坛模块ID
-  userID	integer not null,	//论坛用户ID
-  permission	integer not null	//当前用户,当前模块,权限
-);					//(forumID,userID,permission) 为主键
-
-
-用户属性表:
-antUserProp (
-  userID	integer not null,	//论坛用户ID
-  name		varchar2(30) not null,	//属性名称
-  propValue	varchar2(255) not null	//属性值
-);					//(userID,name) 为主键
-
-
-会话表:
-antSessions (
-  sessionID	varchar2(255) not null,	//对话ID, 主键
-  ip		varchar2(255) not null,	//用户IP
-  userID	integer null,		//用户ID,允许匿名(为空)
-  lasttime	integer not null,	//用户访问持续时间
-  initime	integer not null	//用户登录时间
-);
-
-黑名单表:
-antBlacklist (
-  ip		varchar2(30) not null,	//IP, 主键
-  blockCount	integer 		//阻挡次数
-);
