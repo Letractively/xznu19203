@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="voice_recognition">App/Voice Recognition</string>
+    <string name="speak_button">Speak!</string>
+    <string name="app_name">mystt3</string>
+</resources>
