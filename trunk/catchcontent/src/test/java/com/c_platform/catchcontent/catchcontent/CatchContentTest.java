@@ -3,6 +3,7 @@ package com.c_platform.catchcontent.catchcontent;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +18,22 @@ import org.apache.xerces.xni.XNIException;
 import org.apache.xerces.xni.parser.XMLInputSource;
 import org.cyberneko.html.HTMLConfiguration;
 import org.dom4j.Document;
+import org.dom4j.DocumentFactory;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.QName;
 import org.dom4j.io.DOMReader;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
 import org.junit.Test;
 
 import com.c_platform.catchcontent.catchcontent.denoise.DenoisePolicy;
 import com.c_platform.catchcontent.catchcontent.sequence.MergePolicy;
+import com.c_platform.catchcontent.catchcontent.util.ResourceUtil;
 import com.c_platform.catchcontent.catchcontent.vips.AddDocAttrForElementUtils;
 import com.c_platform.catchcontent.catchcontent.vips.NavigatorIdentityUtils;
+import com.c_platform.catchcontent.catchcontent.webparse.ElementConfigEntity;
 
 public class CatchContentTest {
 	private WebContext ctx = new WebContext();
@@ -282,16 +288,46 @@ public class CatchContentTest {
 			String str = d.asXML();
 			try {
 				FileWriter fw = new FileWriter("d:\\test.html");
-				fw.write(str,0,str.length());
+				fw.write(str, 0, str.length());
 				fw.flush();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			System.out.println("---------------------------------");
 		}
 		return blocks;
+	}
+
+	/**
+	 * 标签过滤
+	 */
+	private void tagFilter(ArrayList<Document> domList) {
+		if (domList != null && domList.size() > 0) {
+			org.dom4j.Document contextDoc;
+			ArrayList<String> resultList = new ArrayList<String>();
+			for (int i = 0, j = domList.size(); i < j; i++) {
+				contextDoc = domList.get(i);
+
+				if (null != contextDoc) {
+					// String engineId = ctx.getJsonMessage().getEngine_id()
+					// .toLowerCase(); // 获取当前设备的引擎版本
+					ElementConfigEntity elementConfigEntity = getElementTags("aaa"); // 根据引擎版本engineId获取匹配的过滤配置文件
+					String url = ctx.getLocationURL() == null ? ctx
+							.getJsonMessage().getBody().getUrl() : ctx
+							.getLocationURL();
+					double[] sreenWH = EntityUtil.getSreenWH(ctx);
+					contextDoc = new AndroidBrowseParse().doParse(contextDoc,
+							elementConfigEntity, url, sreenWH, ctx);
+
+					resultList.add(formateXml(contextDoc.getRootElement(),
+							ctx.getCharset(), false));
+
+				}
+			}
+			ctx.setContent(resultList);
+		}
 	}
 
 	public ArrayList<Node[]> blocking(Element body, int blockSize)
@@ -318,5 +354,52 @@ public class CatchContentTest {
 		return result;
 	}
 
-	
+	public String formateXml(Element element, String charset, boolean istrans)
+			throws IOException {
+		OutputFormat format = OutputFormat.createCompactFormat(); // 以紧凑格式输出
+		// format.setTrimText(false); //不需要去除空格或换行
+		format.setEncoding(charset); // 设置字符集
+		format.setSuppressDeclaration(false); // 去除<?xml version="1.0"
+												// encoding="UTF-8"?>
+		format.setXHTML(true); // 设置为XHTML格式
+		format.setExpandEmptyElements(true); // <tagName/> to
+												// <tagName></tagName>.
+		StringWriter sw = new StringWriter();
+		XMLWriter xw = new XMLWriter(sw, format);
+		xw.setEscapeText(istrans); // 反转义
+		xw.write(element);
+		xw.flush();
+		xw.close();
+		return sw
+				.toString()
+				.replaceAll(
+						"(</\\s*(IMG|INPUT|BR|LINK|META|HR|FRAME|EMBED|AREA|BASE|BASEFONT|BGSOUND|COL)>)|(tagtype=\"custom\")|(table-tag=\"true\")|(&amp;nbsp;)",
+						"");
+	}
+
+	/*
+	 * desc 根据引擎版本engineId获取匹配的过滤配置文件
+	 * 
+	 * @param enginId 设备引擎ID
+	 * 
+	 * @return WebElementRemover
+	 * 
+	 * @throws Exception
+	 */
+	private ElementConfigEntity getElementTags(String engineId)
+			throws Exception {
+		if (ResourceUtil.getElementConfigMap() == null) {
+			boolean result = ResourceUtil.doReadElementTagsConfigFile();
+			if (!result) {
+				// 如果读取配置文件失败则写错误日志
+				throw new Exception("Failed read elementTagsConfig.xml.");
+			}
+		}
+		if (!ResourceUtil.getElementConfigMap().containsKey(engineId)) {
+			// 如果未匹配到引擎版本，则按默认版本处理
+			engineId = ResourceUtil.defineVersion;
+		}
+		return (ElementConfigEntity) ResourceUtil.getElementConfigMap().get(
+				engineId);
+	}
 }
