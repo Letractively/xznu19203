@@ -1,10 +1,10 @@
 package com.c_platform.catchcontent.catchcontent;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
-import java.io.StringWriter;
-
-import javax.swing.text.Element;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -17,41 +17,49 @@ import org.apache.xerces.xni.XNIException;
 import org.apache.xerces.xni.parser.XMLInputSource;
 import org.cyberneko.html.HTMLConfiguration;
 import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.Node;
+import org.dom4j.QName;
 import org.dom4j.io.DOMReader;
-import org.dom4j.io.XMLWriter;
 import org.junit.Test;
 
-public class CatchContentTest {
+import com.c_platform.catchcontent.catchcontent.denoise.DenoisePolicy;
+import com.c_platform.catchcontent.catchcontent.sequence.MergePolicy;
+import com.c_platform.catchcontent.catchcontent.vips.AddDocAttrForElementUtils;
+import com.c_platform.catchcontent.catchcontent.vips.NavigatorIdentityUtils;
 
-	// private static final String url =
-	// "http://news.163.com/12/0821/03/89DCJG5K00011229.html";
-	private static final String url = "http://www.baidu.com";
-	private static final String charset = "gb2312";
+public class CatchContentTest {
+	private WebContext ctx = new WebContext();
 
 	@Test
 	public void createTest() {
-		System.out
-				.println("=============Catch Content Test Begin================");
-		htmlDocumentParse(catchHtmlWithHttpClient());
+		ctx.setUrl("http://news.163.com/12/0821/03/89DCJG5K00011229.html");
+		ctx.setCharset("gb2312");
+		ctx.setScreen(new String[] { "480", "320" });
+		ctx.setIframe(false);
+		ctx.setRss(true);
+
+		String result = catchHtmlWithHttpClient(ctx);
+		ctx.setContent(result);
+		Document doc = htmlDocumentParse(result);
+		ctx.setContent(doc);
+		ctx.setContent(block((Document) ctx.getContent()));
+		ctx.setContent(sequence((ArrayList<Node[]>) ctx.getContent()));
+		ctx.setContent(wrap((ArrayList<Node[]>) ctx.getContent()));
+
 	}
 
-	/**
-	 * 1.ÏÈ×¥È¡ÍøÒ³ 2.Html²¹È«¸ñÊ½»¯ 3.Html±êÇ©½âÎö 4.È¥³ıjs,css 5.·Ö¿é 6.È¡ÕıÎÄ 7.·µ»Øxhtml
-	 */
-
-	// ÓÃhttpclient×¥È¡ÍøÒ³ÄÚÈİ
-	public String catchHtmlWithHttpClient() {
+	public String catchHtmlWithHttpClient(WebContext ctx) {
 		String resource = "";
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(url);
+		HttpGet httpGet = new HttpGet(ctx.getUrl());
 		try {
 			HttpResponse response = httpClient.execute(httpGet);
 			if (response.getStatusLine().getStatusCode() == 200) {
-				System.out.println("==============×¥È¡³É¹¦=============");
-				resource = EntityUtils.toString(response.getEntity(), charset);
-				System.out.println(resource);
+				resource = EntityUtils.toString(response.getEntity(),
+						ctx.getCharset());
 			} else {
-				System.out.println("==============×¥È¡Ê§°Ü=============");
 			}
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
@@ -65,49 +73,37 @@ public class CatchContentTest {
 		return resource;
 	}
 
-	// ±êÇ©²¹È«
 	public Document htmlDocumentParse(String source) {
 		DOMReader dr = new DOMReader();
-		// Ê¹ÓÃnekohtml²¹È«html±êÇ©
 		HTMLConfiguration htmlConfig = new HTMLConfiguration();
 		htmlConfig.setFeature(
 				"http://cyberneko.org/html/features/balance-tags", true);
-		// ±êÇ©´óĞ´
 		htmlConfig.setProperty(
 				"http://cyberneko.org/html/properties/names/elems", "upper");
-		// ÊôĞÔĞ¡Ğ´
 		htmlConfig.setProperty(
 				"http://cyberneko.org/html/properties/names/attrs", "lower");
-		// ÉèÖÃ×Ö·û±àÂë
 		htmlConfig.setProperty(
 				"http://cyberneko.org/html/properties/default-encoding",
-				charset);
-		// ÊÇ·ñÔÊĞíÃüÃû¿Õ¼ä
+				ctx.getCharset());
 		htmlConfig.setFeature("http://xml.org/sax/features/namespaces", false);
-		// ÊÇ·ñ°şµô<script>ÔªËØÖĞµÄ<!-- -->µÈ×¢ÊÍ·û
 		htmlConfig
 				.setFeature(
 						"http://cyberneko.org/html/features/scanner/script/strip-comment-delims",
 						false);
-		// ÊÇ·ñ½«ÓëHTMLÊÂ¼şÓĞ¹ØµÄinfosetÏî°üÀ¨ÔÚ½âÎö¹ÜµÀÖĞ¡£
 		htmlConfig.setFeature(
 				"http://cyberneko.org/html/features/augmentations", true);
-		// µ±Óöµ½×Ö·ûÊµÌåÒıÓÃ£¨Èç£¦#x20;£©ÊÇ·ñ½«(#x20)±¨¸æ¸øÏàÓ¦µØÎÄµµ´¦ÀíÆ÷
 		htmlConfig
 				.setFeature(
 						"http://apache.org/xml/features/scanner/notify-char-refs",
 						true);
-		// µ±Óöµ½XMLÄÚ½¨µÄ×Ö·ûÊµÌåÒıÓÃ£¨Èç£¦amp;£©ÊÇ·ñ½«(amp)±¨¸æ¸øÏàÓ¦µØÎÄµµ´¦ÀíÆ÷¡£
 		htmlConfig.setFeature(
 				"http://apache.org/xml/features/scanner/notify-builtin-refs",
 				true);
-		// µ±Óöµ½HTMLÄÚ½¨µÄ×Ö·ûÊµÌåÒıÓÃ£¨Èç£¦copy;£©ÊÇ·ñ½«(copy)±¨¸æ¸øÏàÓ¦µØÎÄµµ´¦ÀíÆ÷¡£
 		htmlConfig
 				.setFeature(
 						"http://cyberneko.org/html/features/scanner/notify-builtin-refs",
 						true);
 		DOMParser parser = new DOMParser(htmlConfig);
-		// cyberneko½âÎö£º½«httpclient¶ÁÈ¡µÄÊı¾İsource½âÎö³Éw3cµÄDocument¶ÔÏó
 		XMLInputSource xmlInputSource = new XMLInputSource(null, null, null,
 				new StringReader(source), null);
 		try {
@@ -121,47 +117,206 @@ public class CatchContentTest {
 		}
 		org.w3c.dom.Document doc = parser.getDocument();
 		Document dom4jDoc = dr.read(doc);
-		System.out.println(dom4jDoc.asXML());
 		return dom4jDoc;
 	}
-	
-	private void block(Document doc){
-		
-	}
 
-	/**
-	 * ½«element¶ÔÏó×ªÎªString
-	 * @param element
-	 * @param charset
-	 * @param istrans
-	 * @return
-	 */
-	private String formatXml(Element element, String charset, boolean istrans) {
-		org.dom4j.io.OutputFormat format = org.dom4j.io.OutputFormat
-				.createCompactFormat();// ÒÔ½ô´Õ¸ñÊ½Êä³ö
-		format.setEncoding(charset);
-		format.setSuppressDeclaration(false); // È¥³ı<?xml version="1.0" encoding="UTF-8"?>
-		format.setXHTML(true); // ÉèÖÃÎªXHTML¸ñÊ½
-		format.setExpandEmptyElements(true); // <tagName/> to
-		// <tagName></tagName>.
-		StringWriter sw = new StringWriter();
-		XMLWriter xw = new XMLWriter(sw, format);
-		xw.setEscapeText(istrans); // ·´×ªÒå
-		try {
-			xw.write(element);
-			xw.flush();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally{
+	// åˆ†å—
+	private ArrayList<Node[]> block(Document doc) {
+		final int pDoc = 50;
+		final String HEAD = "HEAD";
+		final String BODY = "BODY";
+
+		Element xhtml = doc.getRootElement();
+		DenoisePolicy denoisePolicy = new DenoisePolicy();
+		ArrayList<Node[]> result = new ArrayList<Node[]>();
+		// è¿‡æ»¤å¹¿å‘Š
+		xhtml = denoisePolicy.filterJsAdvertise(ctx.getUrl(), xhtml, "2");
+		Element head = xhtml.element(HEAD);
+		Element body = xhtml.element(BODY);
+		int blockSize = 200;
+		if (body == null || body.elements().size() <= 0) {
+			result.add(new Node[] { body });
+		} else {
 			try {
-				xw.close();
-			} catch (IOException e) {
+				result = blocking(body, blockSize);
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return sw.toString();
-
+		ctx.setHtmlHead(head);
+		ctx.setContent(result);
+		System.out.println(result.size());
+		return result;
 	}
+
+	// æ’åº
+	private ArrayList<Node[]> sequence(ArrayList<Node[]> result) {
+		// ç¡®å®šåˆ†é¡µå¤§å°
+		int blockSize = 200;
+		MergePolicy mergePolicy = null;
+		String ps = "800";
+		try {
+			int pageSize = Integer.parseInt(ps);
+			mergePolicy = new MergePolicy(pageSize, 2 * pageSize, 4 * pageSize);
+		} catch (Exception e) {
+			mergePolicy = new MergePolicy(400, 800, 1600);
+		}
+		ArrayList<Node[]> blocksAfterMerge = mergePolicy.merge(result,
+				blockSize, ctx);
+		System.out.println(blocksAfterMerge.size());
+		return blocksAfterMerge;
+	}
+
+	/**
+	 * 
+	 * TODO åˆ é™¤headä¸­çš„scriptæ ‡ç­¾
+	 * 
+	 * @param element
+	 */
+	private void removeScript(Element element) {
+		System.out.println(element.asXML());
+		List<Node> childrenList = element.content(); // è·å–å½“å‰èŠ‚ç‚¹å­å†…å®¹
+		for (int i = 0; i < childrenList.size(); i++) {
+			Node child = childrenList.get(i); // elementçš„å­©å­èŠ‚ç‚¹
+			if (child.getNodeType() == Node.ELEMENT_NODE) {
+				Element eleChild = (Element) child; // elementçš„å­©å­èŠ‚ç‚¹
+				String tagName = eleChild.getName();
+				if ("SCRIPT".equals(tagName)) {
+					eleChild.detach();
+					continue;
+				}
+				removeScript((Element) child);
+			}
+		}
+	}
+
+	private ArrayList<Document> wrap(ArrayList<Node[]> result) {
+		final String HEAD = "HEAD";
+		final String BODY = "BODY";
+		final String HTML = "HTML";
+		ArrayList<Node[]> temp = new ArrayList<Node[]>();
+		ArrayList<Document> blocks = new ArrayList<Document>();
+		Document comDoc = null;
+		Element els = null;
+		QName qName = null;
+		Element tmpEle = null;
+		comDoc = DocumentHelper.createDocument();
+		Element comxhtml = comDoc.addElement(HTML);
+		// comxhtml.addElement(HEAD).appendContent();
+		removeScript(comxhtml);
+		Element combody = null;
+		// if (!ctx.isBodyEnd()) {
+		// if (ctx.getRootDoc().getRootElement().element(BODY) != null) {
+		// combody = ctx.getRootDoc().getRootElement().element(BODY)
+		// .createCopy();
+		// combody.clearContent();
+		// comxhtml.add(combody);
+		// }
+		//
+		// }
+		/**
+		 * ä½™ä¸‹æ­£æ–‡åˆå¹¶
+		 */
+		// int index = ctx.getHtmlIndex();
+		// if (ctx.isRemainText() && index < result.size() - 1) {
+		// Node[] thisNodes = result.get(index);
+		// Node[] tmp_ex = null;
+		// for (int offset = 0; offset < result.size(); offset++) {
+		// if (index == offset) {
+		// offset++;
+		// }
+		// Node[] nodes = result.get(offset);
+		// if (offset < index) {
+		// temp.add(nodes);
+		// } else {
+		// tmp_ex = new Node[thisNodes.length + nodes.length];
+		// System.arraycopy(thisNodes, 0, tmp_ex, 0, thisNodes.length);
+		// System.arraycopy(nodes, 0, tmp_ex, thisNodes.length,
+		// nodes.length);
+		// thisNodes = tmp_ex;
+		// }
+		// }
+		// if (tmp_ex != null) {
+		// temp.add(tmp_ex);
+		// }
+		// result = temp;
+		// }
+		for (Node[] ns : result) {
+			Element xhtml = comxhtml.createCopy();
+			Element body = xhtml.element("BODY");
+			Element div = null;
+			if (body != null) {
+				div = DocumentHelper.createElement("DIV").addAttribute("class",
+						"main");
+				body.add(div);
+			}
+			Document doc_tmp = DocumentHelper.createDocument();
+			doc_tmp.add(xhtml);
+			for (Node n : ns) {
+				if (n != null && n.getNodeType() == Node.ELEMENT_NODE) {
+					els = (Element) n;
+					qName = els.getQName();
+					if (div != null
+							&& !"FRAMESET".equalsIgnoreCase(qName.getName())) {
+						tmpEle = div.addElement(qName);
+					} else {
+						tmpEle = xhtml.addElement(qName);
+					}
+					removeScript(els);
+					tmpEle.appendAttributes(els);
+					tmpEle.appendContent(els);
+				} else if (n != null && n.getNodeType() == Node.TEXT_NODE) {
+					if (div != null) {
+						div.addText(n.getText());
+					} else {
+						xhtml.addText(n.getText());
+					}
+				}
+			}
+			blocks.add(doc_tmp);
+		}
+		for (Document d : blocks) {
+			System.out.println("=================================");
+			System.out.println(d.asXML());
+			String str = d.asXML();
+			try {
+				FileWriter fw = new FileWriter("d:\\test.html");
+				fw.write(str,0,str.length());
+				fw.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println("---------------------------------");
+		}
+		return blocks;
+	}
+
+	public ArrayList<Node[]> blocking(Element body, int blockSize)
+			throws Exception {
+		// å¯¹bodyä¸‹å­èŠ‚ç‚¹æ˜¯æ–‡æœ¬èŠ‚ç‚¹å¤„ç†å¦‚www.d3zw.comå°è¯´
+		ArrayList<Node[]> result = new ArrayList<Node[]>();
+		List<Node> nodes = body.content();
+		for (int i = 0; i < nodes.size(); i++) {
+			if (nodes.get(i).getNodeType() == Node.TEXT_NODE
+					&& nodes.get(i).asXML().trim().length() > 0) {
+				Element div = DocumentHelper.createElement("P").addAttribute(
+						"class", "content");
+				div.add(nodes.get(i).detach());
+				body.add(div);
+			}
+		}
+
+		// æ–°ç‰ˆæœ¬åˆ†å—å®ç°
+		// denoisePolicy.addHrefForNode(body);//æ”¾åˆ°blockingä¹‹å¤–ï¼Œ
+		AddDocAttrForElementUtils.addDocForNode(body);
+		AddDocAttrForElementUtils.treeWalkByDoc(body, result);
+
+		NavigatorIdentityUtils.addAttrForElement(result);
+		return result;
+	}
+
+	
 }
