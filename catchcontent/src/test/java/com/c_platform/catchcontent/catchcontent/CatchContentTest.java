@@ -18,7 +18,6 @@ import org.apache.xerces.xni.XNIException;
 import org.apache.xerces.xni.parser.XMLInputSource;
 import org.cyberneko.html.HTMLConfiguration;
 import org.dom4j.Document;
-import org.dom4j.DocumentFactory;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -33,7 +32,8 @@ import com.c_platform.catchcontent.catchcontent.sequence.MergePolicy;
 import com.c_platform.catchcontent.catchcontent.util.ResourceUtil;
 import com.c_platform.catchcontent.catchcontent.vips.AddDocAttrForElementUtils;
 import com.c_platform.catchcontent.catchcontent.vips.NavigatorIdentityUtils;
-import com.c_platform.catchcontent.catchcontent.webparse.ElementConfigEntity;
+import com.c_platform.catchcontent.catchcontent.webparse.android.AndroidBrowseParse;
+import com.c_platform.catchcontent.catchcontent.webparse.common.ElementConfigEntity;
 
 public class CatchContentTest {
 	private WebContext ctx = new WebContext();
@@ -305,7 +305,7 @@ public class CatchContentTest {
 	 */
 	private void tagFilter(ArrayList<Document> domList) {
 		if (domList != null && domList.size() > 0) {
-			org.dom4j.Document contextDoc;
+			Document contextDoc;
 			ArrayList<String> resultList = new ArrayList<String>();
 			for (int i = 0, j = domList.size(); i < j; i++) {
 				contextDoc = domList.get(i);
@@ -313,17 +313,25 @@ public class CatchContentTest {
 				if (null != contextDoc) {
 					// String engineId = ctx.getJsonMessage().getEngine_id()
 					// .toLowerCase(); // 获取当前设备的引擎版本
-					ElementConfigEntity elementConfigEntity = getElementTags("aaa"); // 根据引擎版本engineId获取匹配的过滤配置文件
-					String url = ctx.getLocationURL() == null ? ctx
-							.getJsonMessage().getBody().getUrl() : ctx
-							.getLocationURL();
-					double[] sreenWH = EntityUtil.getSreenWH(ctx);
-					contextDoc = new AndroidBrowseParse().doParse(contextDoc,
-							elementConfigEntity, url, sreenWH, ctx);
+					ElementConfigEntity elementConfigEntity;
+					try {
+						elementConfigEntity = getElementTags("aaa");
+						// 根据引擎版本engineId获取匹配的过滤配置文件
+						// String url = ctx.getLocationURL() == null ? ctx
+						// .getJsonMessage().getBody().getUrl() : ctx
+						// .getLocationURL();
+						String url = ctx.getUrl();
+						double[] sreenWH = new double[] { 480, 320 };
+						contextDoc = new AndroidBrowseParse().doParse(
+								contextDoc, elementConfigEntity, url, sreenWH,
+								ctx);
 
-					resultList.add(formateXml(contextDoc.getRootElement(),
-							ctx.getCharset(), false));
-
+						resultList.add(formateXml(contextDoc.getRootElement(),
+								ctx.getCharset(), false));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 			ctx.setContent(resultList);
@@ -386,8 +394,8 @@ public class CatchContentTest {
 	 * 
 	 * @throws Exception
 	 */
-	private ElementConfigEntity getElementTags(String engineId)
-			throws Exception {
+	private com.c_platform.catchcontent.catchcontent.webparse.common.ElementConfigEntity getElementTags(
+			String engineId) throws Exception {
 		if (ResourceUtil.getElementConfigMap() == null) {
 			boolean result = ResourceUtil.doReadElementTagsConfigFile();
 			if (!result) {
@@ -399,7 +407,7 @@ public class CatchContentTest {
 			// 如果未匹配到引擎版本，则按默认版本处理
 			engineId = ResourceUtil.defineVersion;
 		}
-		return (ElementConfigEntity) ResourceUtil.getElementConfigMap().get(
-				engineId);
+		return (com.c_platform.catchcontent.catchcontent.webparse.common.ElementConfigEntity) ResourceUtil
+				.getElementConfigMap().get(engineId);
 	}
 }
