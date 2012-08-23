@@ -91,7 +91,7 @@ public class CatchContentTest {
 
 	@Test
 	public void createTest() {
-		ctx.setUrl("http://news.sina.cn/?sa=t124v71d6681287&pos=108&vt=4");
+		ctx.setUrl("http://news.163.com/12/0821/03/89DCJG5K00011229.html");
 		ctx.setCharset("gb2312");
 		ctx.setScreen(new String[] { "480", "320" });
 		ctx.setIframe(false);
@@ -297,22 +297,12 @@ public class CatchContentTest {
 					mapLink.clear();
 				}
 			}
-			// 增加退出阅读模式
-			// readNode = addQuitReadNode(ctx, readNode);
-
-			// 增加横线
-			// readNode = addLineNode(readNode);
-
-			// 纵横书城 有乱码没有处理需要处理 纵横小说 正文部分的span Css 样式是隐藏
-
-			if (isCompareTwoText("zongheng", url)) {
-				readNode = removeSpanForZongheng(readNode);
-			}
 
 			Element elementHTitle = getTitleElement(ctx, readNode);
 			Node[] nodeAdd = new Node[4];
 
-			nodeAdd[0] = getElementTitle(elementHTitle, ctx, readNode);
+//			nodeAdd[0] = getElementTitle(elementHTitle, ctx, readNode);
+			nodeAdd[0] = elementHTitle;
 			nodeAdd[1] = DocumentHelper.createElement("DIV").addAttribute(
 					"class", "line");
 			nodeAdd[2] = DocumentHelper.createElement("DIV").addAttribute(
@@ -361,48 +351,9 @@ public class CatchContentTest {
 		comxhtml.addElement(HEAD).appendContent(ctx.getHtmlHead());
 		comxhtml.addElement(BODY);
 		removeScript(comxhtml);
-		// Element combody = null;
-		// if (comxhtml.element(BODY) != null) {
-		// combody = comxhtml.addElement(BODY);
-		// combody.clearContent();
-		// comxhtml.add(combody);
-		// }
-		// if (!ctx.isBodyEnd()) {
-		// if (ctx.getRootDoc().getRootElement().element(BODY) != null) {
-		// combody = ctx.getRootDoc().getRootElement().element(BODY)
-		// .createCopy();
-		// combody.clearContent();
-		// comxhtml.add(combody);
-		// }
-		//
-		// }
 		/**
 		 * 余下正文合并
 		 */
-		// int index = ctx.getHtmlIndex();
-		// if (ctx.isRemainText() && index < result.size() - 1) {
-		// Node[] thisNodes = result.get(index);
-		// Node[] tmp_ex = null;
-		// for (int offset = 0; offset < result.size(); offset++) {
-		// if (index == offset) {
-		// offset++;
-		// }
-		// Node[] nodes = result.get(offset);
-		// if (offset < index) {
-		// temp.add(nodes);
-		// } else {
-		// tmp_ex = new Node[thisNodes.length + nodes.length];
-		// System.arraycopy(thisNodes, 0, tmp_ex, 0, thisNodes.length);
-		// System.arraycopy(nodes, 0, tmp_ex, thisNodes.length,
-		// nodes.length);
-		// thisNodes = tmp_ex;
-		// }
-		// }
-		// if (tmp_ex != null) {
-		// temp.add(tmp_ex);
-		// }
-		// result = temp;
-		// }
 		for (Node[] ns : result) {
 			Element xhtml = comxhtml.createCopy();
 			Element body = xhtml.element("BODY");
@@ -437,18 +388,6 @@ public class CatchContentTest {
 			}
 			blocks.add(doc_tmp);
 		}
-		// for (Document d : blocks) {
-		// String str = d.asXML();
-		// try {
-		// FileWriter fw = new FileWriter("d:\\test.html");
-		// fw.write(str, 0, str.length());
-		// fw.flush();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		//
-		// }
 		return blocks;
 	}
 
@@ -605,26 +544,6 @@ public class CatchContentTest {
 		return readNode;
 	}
 
-	private Node getElementTitle(Element elementHTitle, WebContext ctx,
-			Node readNode) {
-		String url = ctx.getUrl();
-		if (url.indexOf("xs8.cn/book") != -1) {
-			return null;
-		} else if (url.indexOf("hszw.com/book") != -1) {
-			return null;
-		} else if (url.indexOf("book.zhulang.com") != -1) {
-			Element titleElement = ctx.getHtmlHead().element("TITLE");
-			if (titleElement != null) {
-				String title = titleElement.getTextTrim();
-				String titleName = title.substring(0, title.lastIndexOf("，"));
-				elementHTitle = DocumentHelper.createElement("H1").addText(
-						titleName);
-			}
-		}
-
-		return elementHTitle;
-	}
-
 	// 获取标题
 	private Element getTitleElement(WebContext ctx, Node readNode) {
 		// System.out.println("--------->" + readNode.asXML());
@@ -699,39 +618,6 @@ public class CatchContentTest {
 		return readElement;
 	}
 
-	// 纵横网站span标签的东西不需要，是乱码
-	private Node removeSpanForZongheng(Node readNode) {
-		Element readElement = (Element) readNode;
-		if (readElement != null) {
-			removeTagsForZongheng(readElement);
-		}
-		return readElement;
-	}
-
-	// 纵横网页的span CSS 样式是 不显示
-	@SuppressWarnings("unchecked")
-	void removeTagsForZongheng(Element element) {
-		List<Node> childrenList = element.content(); // 获取当前节点子内容
-		for (int i = 0; i < childrenList.size(); i++) {
-			Node child = childrenList.get(i); // element的孩子节点
-			if (child.getNodeType() == Node.ELEMENT_NODE) {
-				Element eleChild = (Element) child; // element的孩子节点
-				String tagName = eleChild.getName();
-				if ("SPAN".equalsIgnoreCase(tagName)) {
-					String spanAttribute = eleChild.attributeValue("class");
-					if (spanAttribute != null && spanAttribute.length() != 0) {
-						if (spanAttribute.equalsIgnoreCase("watermark")) {
-							eleChild.detach();
-							continue;
-						}
-					}
-
-				}
-				removeTagsForZongheng((Element) child);
-			}
-		}
-	}
-
 	/**
 	 * 小说或者新闻的标题加在正文上。
 	 * 
@@ -770,28 +656,6 @@ public class CatchContentTest {
 		return readElement;
 	}
 
-	/*
-	 * 退出阅读模式
-	 */
-	private Node addQuitReadNode(WebContext ctx, Node readNode) {
-		Element eleNode = (Element) readNode;
-		Element divElement = DocumentHelper.createElement("DIV");
-		divElement.add((Element) eleNode.clone());
-		Element quitElementDiv = DocumentHelper.createElement("DIV");
-		String url = ctx.getUrl();
-		if (url != null && url.length() > 0) {
-
-			byte[] b = (url.substring(7) + "&rm=1").getBytes();
-			url = Base64.encode(b);
-			url = "http://TT01_" + url;
-			Element hrefElement = quitElementDiv.addElement("A");
-			hrefElement.addAttribute("id", "quitReadModel");
-			hrefElement.addAttribute("href", url); // rm=1 是不进入阅读模式
-			hrefElement.addText("退出阅读模式");
-		}
-		divElement.add((Element) quitElementDiv.clone());
-		return divElement;
-	}
 
 	/**
 	 * 抽取节点 保留keepTags下的节点 其他节点全部抽走
