@@ -1,11 +1,3 @@
-/*
- * 文 件 名：ULStyleAdapt.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：
- * 修 改 人：wei.jiang
- * 修改时间：2010-6-4
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.webparse.android;
 
 import java.util.HashSet;
