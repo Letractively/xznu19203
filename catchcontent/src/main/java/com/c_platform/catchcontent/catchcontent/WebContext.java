@@ -11,6 +11,7 @@ public class WebContext {
 	private boolean isRss;
 	private boolean isIframe;
 	private Element htmlHead; 
+	private Element elementHTitle;
 	public Element getHtmlHead() {
 		return htmlHead;
 	}
@@ -52,6 +53,12 @@ public class WebContext {
 	}
 	public void setIframe(boolean isIframe) {
 		this.isIframe = isIframe;
+	}
+	public Element getElementHTitle() {
+		return elementHTitle;
+	}
+	public void setElementHTitle(Element elementHTitle) {
+		this.elementHTitle = elementHTitle;
 	}
 
 }

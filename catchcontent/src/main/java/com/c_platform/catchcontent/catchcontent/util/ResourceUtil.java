@@ -35,7 +35,7 @@ import com.c_platform.catchcontent.catchcontent.webparse.common.ElementConfigEnt
  * @since OpenEye TAPS_AGENT V1R1C02
  */
 public class ResourceUtil {
-	private static String ELEMENT_TAGS_CONFIG_PATH = "com/huawei/nwa/networkagent/xml/elementTagsConfig.xml";
+	private static String ELEMENT_TAGS_CONFIG_PATH = "com/c_platform/cc/catchcontent/xml/elementTagsConfig.xml";
 
 //	private static String COMMON_JS_PATH = "com/huawei/nwa/networkagent/common/commonJavaScript.js";
 //
