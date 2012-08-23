@@ -1,6 +1,5 @@
 package com.c_platform.catchcontent.catchcontent.scale;
 
-import java.util.concurrent.ConcurrentHashMap;
 
 public class ScaleByIm4java {
 	/**

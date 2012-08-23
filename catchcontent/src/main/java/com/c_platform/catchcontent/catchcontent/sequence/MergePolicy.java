@@ -1,11 +1,3 @@
-/*
- * 文 件 名：MergeUtils.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：
- * 修 改 人：tao.zhang
- * 修改时间：2010-4-26
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.sequence;
 
 import java.util.ArrayList;
@@ -19,10 +11,6 @@ import com.c_platform.catchcontent.catchcontent.vips.XpathSimilarityPolicy;
 
 /**
  * TODO 合并分块后的数据块
- * 
- * @author tao.zhang
- * @version C02 2010-4-26
- * @since OpenEye TAPS_AGENT V1R1C02
  */
 public class MergePolicy {
 	// private static Logger logger = Logger
