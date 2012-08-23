@@ -258,8 +258,6 @@ public class CatchContentTest {
 		Node readNode = null;
 		HashMap<String, Element> elementHashMap = new HashMap<String, Element>();
 		double weightNode = 0;
-		// Element div =
-		// DocumentHelper.createElement("div").addAttribute("class", "rssmain");
 		for (Node[] node : blocks) {
 			for (int i = 0; i < node.length; i++) {
 				if (node[i] != null) {
