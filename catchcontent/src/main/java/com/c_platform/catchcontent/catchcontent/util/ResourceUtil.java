@@ -1,11 +1,3 @@
-/*
- * 文 件 名：ResourceUtil.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：HTML过滤配置文件读取
- * 修 改 人：江伟
- * 修改时间：2010-3-30
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.util;
 
 import java.io.File;
@@ -29,10 +21,6 @@ import com.c_platform.catchcontent.catchcontent.webparse.common.ElementConfigEnt
 
 /**
  * TODO HTML过滤配置文件读取
- * 
- * @author 江伟
- * @version C02 2010-3-30
- * @since OpenEye TAPS_AGENT V1R1C02
  */
 public class ResourceUtil {
 	private static String ELEMENT_TAGS_CONFIG_PATH = "com/c_platform/cc/catchcontent/xml/elementTagsConfig.xml";
