@@ -5,9 +5,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/**
- * @author J. H. S.
- */
 public class Domains {
 	private static final Collection gTLDs;
 

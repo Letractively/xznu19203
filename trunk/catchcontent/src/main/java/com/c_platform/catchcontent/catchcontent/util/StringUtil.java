@@ -1,23 +1,11 @@
-/*
- * 文 件 名：StringUtil.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：String工具
- * 修 改 人：kai.li
- * 修改时间：2010-4-6
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.c_platform.catchcontent.catchcontent.WebContext;
 
 public final class StringUtil {
 
