@@ -1,11 +1,3 @@
-/*
- * 文 件 名：SequenceUtils.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：
- * 修 改 人：tao.zhang
- * 修改时间：2010-4-16
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.sequence;
 
 import java.io.StringReader;
@@ -13,7 +5,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.xerces.xni.parser.XMLDocumentFilter;
 import org.cyberneko.html.parsers.DOMParser;
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -26,10 +17,6 @@ import com.c_platform.catchcontent.catchcontent.scale.ScaleByIm4java;
 
 /**
  * TODO 排序、合并所需方法
- * 
- * @author tao.zhang
- * @version C02 2010-4-16
- * @since OpenEye TAPS_AGENT V1R1C02
  */
 public class SequenceUtils {
 	private static final String NONATIVEHREF = "nonativehref";

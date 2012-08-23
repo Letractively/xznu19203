@@ -1,11 +1,3 @@
-/*
- * 文 件 名：LevenshteinDistance.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：计算两个字符串相似度的LD算法
- * 修 改 人：zhangtao
- * 修改时间：2010-4-6
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.denoise;
 
 /**
