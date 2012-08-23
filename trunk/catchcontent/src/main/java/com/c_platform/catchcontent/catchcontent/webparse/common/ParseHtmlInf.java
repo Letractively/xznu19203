@@ -1,13 +1,5 @@
 package com.c_platform.catchcontent.catchcontent.webparse.common;
 
-/*
- * 文 件 名：ParseHtmlInf.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：
- * 修 改 人：wei.jiang
- * 修改时间：2010-6-7
- * 修改内容：新增
- */
 import java.util.List;
 
 import org.dom4j.Document;

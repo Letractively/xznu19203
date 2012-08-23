@@ -1,11 +1,3 @@
-/*
- * 文 件 名：ElementTags.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：HTML过滤配置文件实现类
- * 修 改 人：江伟
- * 修改时间：2010-3-30
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.webparse.common;
 
 import java.util.HashSet;

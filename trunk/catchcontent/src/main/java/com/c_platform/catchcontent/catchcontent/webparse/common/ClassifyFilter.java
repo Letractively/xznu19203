@@ -1,11 +1,3 @@
-/*
- * 文 件 名：ClassifyFilter.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：收集javascript和CSS
- * 修 改 人：江伟
- * 修改时间：2010-3-30
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.webparse.common;
 
 import java.net.MalformedURLException;
