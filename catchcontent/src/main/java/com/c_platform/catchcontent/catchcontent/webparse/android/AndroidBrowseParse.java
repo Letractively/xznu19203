@@ -175,31 +175,31 @@ public class AndroidBrowseParse extends ParseHtml {
 //		}
 
 		// 将所有图片标签 的src属性修改为天天浏览器代理服务器get请求url
-		if ((enginId.indexOf("adrmini") >= 0 || enginId.indexOf("tianyi") >= 0 || enginId
-				.indexOf("iph") >= 0)) {
-			if (eleChild.attributeValue("src") != null
-					&& "".equals(eleChild.attributeValue("src").trim())) {
-				eleChild.detach();
-			}
-			if (("img".equalsIgnoreCase(tagName) || "frame"
-					.equalsIgnoreCase(tagName))
-					&& eleChild.attribute("src") != null
-					&& !"".equals(eleChild.attributeValue("src").trim())) {
-				String src = eleChild.attributeValue("src");
-				// eleChild.attribute("src").detach();
-				// eleChild.addAttribute("lazy_src",
-				// RepairUrl.fillWithGetUrl(ctx,
-				// src)
-				// + "&isImg=1");
-				eleChild.addAttribute("src", src);
-			} else if ("iframe".equalsIgnoreCase(tagName)
-					&& eleChild.attribute("src") != null
-					&& !"".equals(eleChild.attributeValue("src").trim())) {
-				String src = eleChild.attributeValue("src");
-				eleChild.attribute("src").detach();
-				eleChild.addAttribute("src", src);
-			}
-		}
+//		if ((enginId.indexOf("adrmini") >= 0 || enginId.indexOf("tianyi") >= 0 || enginId
+//				.indexOf("iph") >= 0)) {
+//			if (eleChild.attributeValue("src") != null
+//					&& "".equals(eleChild.attributeValue("src").trim())) {
+//				eleChild.detach();
+//			}
+//			if (("img".equalsIgnoreCase(tagName) || "frame"
+//					.equalsIgnoreCase(tagName))
+//					&& eleChild.attribute("src") != null
+//					&& !"".equals(eleChild.attributeValue("src").trim())) {
+//				String src = eleChild.attributeValue("src");
+//				// eleChild.attribute("src").detach();
+//				// eleChild.addAttribute("lazy_src",
+//				// RepairUrl.fillWithGetUrl(ctx,
+//				// src)
+//				// + "&isImg=1");
+//				eleChild.addAttribute("src", src);
+//			} else if ("iframe".equalsIgnoreCase(tagName)
+//					&& eleChild.attribute("src") != null
+//					&& !"".equals(eleChild.attributeValue("src").trim())) {
+//				String src = eleChild.attributeValue("src");
+//				eleChild.attribute("src").detach();
+//				eleChild.addAttribute("src", src);
+//			}
+//		}
 	}
 
 }
