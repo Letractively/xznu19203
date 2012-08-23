@@ -1,11 +1,3 @@
-/*
- * 文 件 名：XpathSimilarityPolicy.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：
- * 修 改 人：tao.zhang
- * 修改时间：2010-4-26
- * 修改内容：修改
- */
 package com.c_platform.catchcontent.catchcontent.vips;
 
 /**
