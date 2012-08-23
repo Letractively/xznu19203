@@ -1,11 +1,3 @@
-/*
- * 文 件 名：AndroidBrowseParse.java
- * 版    权：Copyright 2008-2009 Huawei Tech.Co.Ltd.All Rights Reserved.
- * 描    述：针对Android平台浏览器的过滤
- * 修 改 人：江伟
- * 修改时间：2010-6-7
- * 修改内容：新增
- */
 package com.c_platform.catchcontent.catchcontent.webparse.android;
 
 import java.io.UnsupportedEncodingException;
