@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/myButton1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button1" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/bg2" />
+            <ImageView
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/bg3" />
+        </TableRow>
+          <TableRow>
+
+            <ImageView
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/bg3" />
+            <ImageView
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/bg2" />
+        </TableRow>
+          <TableRow>
+
+            <ImageView
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/bg2" />
+            <ImageView
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/bg3" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

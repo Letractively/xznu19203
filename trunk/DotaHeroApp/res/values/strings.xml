@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">DotaHeroApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="DotaHeroApp">DotaHeroApp</string>
+    <string name="button1">button1</string>
+    <string name="button2">button2</string>
+    <string name="button3">button3</string>
+    <string name="button4">button4</string>
+    <string name="button5">button5</string>
+    <string name="button6">button6</string>
+
+</resources>
