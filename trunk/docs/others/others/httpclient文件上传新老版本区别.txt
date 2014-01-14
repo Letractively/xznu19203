@@ -1,0 +1,20 @@
+Before:
+> 
+>     Part[] parts = {
+>       new StringPart("Some-Field", "Some-Value"),
+>       new FilePart("Some-File", f)
+>     };
+> 
+>     MultipartRequestEntity entity =
+>       new MultipartRequestEntity(parts, method.getParams());
+> 
+>   After:
+> 
+>     LinkedHashMap<String,ContentBody> parts =
+>       new LinkedHashMap<String,ContentBody>();
+>     parts.put("Some-Field", new StringBody("Some-Value"));
+>     parts.put("Some-File", new FileBody(f));
+> 
+>     MultipartEntity entity = new MultipartEntity();
+>     for (Entry<String,ContentBody> part : parts)
+>       entity.addPart(part.getKey(), part.getValue());
