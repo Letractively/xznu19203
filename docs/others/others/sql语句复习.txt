@@ -1,0 +1,141 @@
+1.新建一个拥有复合主键的表
+ create table a(a int primary key,b int not null unique)z  	//unique表示不能重复
+
+
+2.消除查询的重复记录
+select distinct state from customers;
+select unique state from customers;
+
+3.在显示时对列内容进行串联
+select firstname || lastname from customers;
+
+4.查询语句中使用算术运算
+select title,retail-cost profit from books;
+select title,retail/cost profit from books;
+
+5.条件查询语句
+select [distinct|unique] (*,column[as alias],...)
+	from table
+	[where condition]
+	[group by group_by_expression]
+	[having group_condition]
+	[order by column];
+
+6.根据日期查询
+select * from books where pubdate = '21-JAN-01';
+
+7.比较运算符查询
+select * title,retail from books where retail > 55;
+
+8.搜索书名大于ST的图书
+select * from books where title > 'ST';
+
+9.比较运算符
+<>,!=,^=	不等于
+<=		小于等于
+>=		大于等于
+[NOT] between x and y
+[NOT] in (x,y...)
+[NOT] like 'TH%'
+is[NOT] NULL
+
+10.NULL值的处理必须要使用is NULL
+
+11.order by desc	降序
+   order by esc 	升序
+	默认为升序
+
+12.次排序
+	select lastname,firstname,referred from customers order by referred NULLS first;
+	select lastname,firstname,city,state from customers order by state desc,city;
+
+13.笛卡尔链接（笛卡尔乘积）
+select title,name from books CROSS JOIN publisher;
+
+14.相等联接
+	传统方法：select title,name from books,publisher where books.pubid = publisher.pubid;
+	JOIN方法：（1）NATURAL JOIN关键字
+			在包括一个同等命名和定义的字段的两个表之间自动创建联接
+			select title,pubid,name from publisher NATURAL JOIN books;
+		  （2）USING关键字
+			根据在两个表中具有相同名称和定义的列创建联接
+			select title,pubid,name from books JOIN publisher USING (pubid);
+		  （3）JOIN...ON关键字
+			当USING子句中联接的表没有没有包括一个同等命名和定义的字段时，你必须添加一个
+			where子句或者向JOIN关键字添加ON子句，以便指定这两个表之间的关系
+			select title,name from books b JOIN publisher p ON b.pubid=p.pubid;
+	随JOIN关键字使用USING和ON子句，期间存在两个主要的区别：
+	a.“只有”当联接的表包括一个具有相同名称的公共列时才能使用USING子句，这不是ON子句所必须的
+	b.条件是在ON子句中指定的，这在USING子句中是不允许的。USING子句只能包含公共列的名称。
+
+15.时间
+	select trunc(sysdate,'hh24') from dual
+
+16.查询独立用户登录数
+	select count(distinct imei),client_version_code,login_time from Res_user_login group by login_time,client_version_code
+
+17.集合运算符
+	UNION——返回结合的SELECT语句的结果。删除重复的记录
+	UNION ALL——返回结合的SELECT语句的结果。不删除重复的记录
+	INTERSECT——只返回两个SELECT语句的结果中都包括的行
+	MINUS——删除第一个查询中也存在的第二个查询的结果，只显示由第一个查询返回的行
+
+18.单行函数
+	大小写转换函数——LOWER，UPPER，INITCAP
+
+19.字符处理函数
+	SUBSTR函数——返回“字串”
+	select DISTINCT substr(zip,1,3) from customers;
+
+	LENGTH函数——确定一个字符串中的字符数量
+	select DISTINCT length(address) from customers;
+
+	REPLACE函数——替换指定的字符串的值REPLACE(c,s,r)
+
+20.数字函数
+	ROUND——将数字字段舍入到指定的精度ROUND(n,p)
+	TRUNC——截断数字数据
+
+21.组函数（多行函数）（聚合函数）
+	count
+	sum
+	avg
+	max
+	min
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

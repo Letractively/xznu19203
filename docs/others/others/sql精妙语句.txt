@@ -1,0 +1,356 @@
+Oracle SQL精妙SQL语句讲解
+
+好东西，大家赶紧收藏吧~~~
+
+--行列转换 行转列
+DROP TABLE t_change_lc;
+CREATE TABLE t_change_lc (card_code VARCHAR2(3), q NUMBER, bal NUMBER);
+
+INSERT INTO t_change_lc
+SELECT '001' card_code, ROWNUM q, trunc(dbms_random.VALUE * 100) bal FROM dual CONNECT BY ROWNUM <= 4
+UNION
+SELECT '002' card_code, ROWNUM q, trunc(dbms_random.VALUE * 100) bal FROM dual CONNECT BY ROWNUM <= 4;
+
+SELECT * FROM t_change_lc;
+
+SELECT a.card_code,
+       SUM(decode(a.q, 1, a.bal, 0)) q1,
+       SUM(decode(a.q, 2, a.bal, 0)) q2,
+       SUM(decode(a.q, 3, a.bal, 0)) q3,
+       SUM(decode(a.q, 4, a.bal, 0)) q4
+  FROM t_change_lc a
+GROUP BY a.card_code
+ORDER BY 1;
+
+--行列转换 列转行
+DROP TABLE t_change_cl;
+CREATE TABLE t_change_cl AS
+SELECT a.card_code,
+       SUM(decode(a.q, 1, a.bal, 0)) q1,
+       SUM(decode(a.q, 2, a.bal, 0)) q2,
+       SUM(decode(a.q, 3, a.bal, 0)) q3,
+       SUM(decode(a.q, 4, a.bal, 0)) q4
+  FROM t_change_lc a
+GROUP BY a.card_code
+ORDER BY 1;
+
+SELECT * FROM t_change_cl;
+
+SELECT t.card_code,
+       t.rn q,
+       decode(t.rn, 1, t.q1, 2, t.q2, 3, t.q3, 4, t.q4) bal
+  FROM (SELECT a.*, b.rn
+          FROM t_change_cl a,
+               (SELECT ROWNUM rn FROM dual CONNECT BY ROWNUM <= 4) b) t
+ORDER BY 1, 2;
+
+--行列转换 行转列 合并
+DROP TABLE t_change_lc_comma;
+CREATE TABLE t_change_lc_comma AS SELECT card_code,'quarter_'||q AS q FROM t_change_lc;
+
+SELECT * FROM t_change_lc_comma;
+
+SELECT t1.card_code, substr(MAX(sys_connect_by_path(t1.q, ';')), 2) q
+  FROM (SELECT a.card_code,
+               a.q,
+               row_number() over(PARTITION BY a.card_code ORDER BY a.q) rn
+          FROM t_change_lc_comma a) t1
+START WITH t1.rn = 1
+CONNECT BY t1.card_code = PRIOR t1.card_code
+       AND t1.rn - 1 = PRIOR t1.rn
+GROUP BY t1.card_code;
+
+--行列转换 列转行 分割
+DROP TABLE t_change_cl_comma;
+CREATE TABLE t_change_cl_comma  AS
+SELECT t1.card_code, substr(MAX(sys_connect_by_path(t1.q, ';')), 2) q
+  FROM (SELECT a.card_code,
+               a.q,
+               row_number() over(PARTITION BY a.card_code ORDER BY a.q) rn
+          FROM t_change_lc_comma a) t1
+START WITH t1.rn = 1
+CONNECT BY t1.card_code = PRIOR t1.card_code
+       AND t1.rn - 1 = PRIOR t1.rn
+GROUP BY t1.card_code;
+
+SELECT * FROM t_change_cl_comma;
+
+SELECT t.card_code,
+       substr(t.q,
+              instr(';' || t.q, ';', 1, rn),
+              instr(t.q || ';', ';', 1, rn) - instr(';' || t.q, ';', 1, rn)) q
+  FROM (SELECT a.card_code, a.q, b.rn
+          FROM t_change_cl_comma a,
+               (SELECT ROWNUM rn FROM dual CONNECT BY ROWNUM <= 100) b
+         WHERE instr(';' || a.q, ';', 1, rn) > 0) t
+ORDER BY 1, 2;
+
+
+-- 实现一条记录根据条件多表插入
+DROP TABLE t_ia_src;
+CREATE TABLE t_ia_src AS SELECT 'a'||ROWNUM c1, 'b'||ROWNUM c2 FROM dual CONNECT BY ROWNUM<=5;
+DROP TABLE t_ia_dest_1;
+CREATE TABLE t_ia_dest_1(flag VARCHAR2(10) , c VARCHAR2(10));
+DROP TABLE t_ia_dest_2;
+CREATE TABLE t_ia_dest_2(flag VARCHAR2(10) , c VARCHAR2(10));
+DROP TABLE t_ia_dest_3;
+CREATE TABLE t_ia_dest_3(flag VARCHAR2(10) , c VARCHAR2(10));
+
+SELECT * FROM t_ia_src;
+SELECT * FROM t_ia_dest_1;
+SELECT * FROM t_ia_dest_2;
+SELECT * FROM t_ia_dest_3;
+
+INSERT ALL
+WHEN (c1 IN ('a1','a3')) THEN
+INTO t_ia_dest_1(flag,c) VALUES(flag1,c2)
+WHEN (c1 IN ('a2','a4')) THEN
+INTO t_ia_dest_2(flag,c) VALUES(flag2,c2)
+ELSE
+INTO t_ia_dest_3(flag,c) VALUES(flag1||flag2,c1||c2)
+SELECT c1,c2, 'f1' flag1, 'f2' flag2 FROM t_ia_src;
+
+-- 如果存在就更新，不存在就插入用一个语句实现
+DROP TABLE t_mg;
+CREATE TABLE t_mg(code VARCHAR2(10), NAME VARCHAR2(10));
+
+SELECT * FROM t_mg;
+
+MERGE INTO t_mg a
+USING (SELECT 'the code' code, 'the name' NAME FROM dual) b
+ON (a.code = b.code)
+WHEN MATCHED THEN
+  UPDATE SET a.NAME = b.NAME
+WHEN NOT MATCHED THEN
+  INSERT (code, NAME) VALUES (b.code, b.NAME);
+  
+-- 抽取/删除重复记录
+DROP TABLE t_dup;
+CREATE TABLE t_dup AS SELECT 'code_'||ROWNUM code, dbms_random.string('z',5) NAME FROM dual CONNECT BY ROWNUM<=10;
+INSERT INTO t_dup SELECT  'code_'||ROWNUM code, dbms_random.string('z',5) NAME FROM dual CONNECT BY ROWNUM<=2;
+
+SELECT * FROM t_dup;
+
+SELECT * FROM t_dup a WHERE a.ROWID <> (SELECT MIN(b.ROWID) FROM t_dup b WHERE a.code=b.code);
+
+SELECT b.code, b.NAME
+  FROM (SELECT a.code,
+               a.NAME,
+               row_number() over(PARTITION BY a.code ORDER BY a.ROWID) rn
+          FROM t_dup a) b
+WHERE b.rn > 1;
+
+-- IN/EXISTS的不同适用环境
+-- t_orders.customer_id有索引
+SELECT a.*
+  FROM t_employees a
+WHERE a.employee_id IN
+       (SELECT b.sales_rep_id FROM t_orders b WHERE b.customer_id = 12);
+
+SELECT a.*
+  FROM t_employees a
+WHERE EXISTS (SELECT 1
+          FROM t_orders b
+         WHERE b.customer_id = 12
+           AND a.employee_id = b.sales_rep_id);
+
+-- t_employees.department_id有索引
+SELECT a.*
+  FROM t_employees a
+WHERE a.department_id = 10
+   AND EXISTS
+(SELECT 1 FROM t_orders b WHERE a.employee_id = b.sales_rep_id);
+
+SELECT a.*
+  FROM t_employees a
+WHERE a.department_id = 10
+   AND a.employee_id IN (SELECT b.sales_rep_id FROM t_orders b);
+   
+-- FBI
+DROP TABLE t_fbi;
+CREATE TABLE t_fbi AS
+SELECT ROWNUM rn, dbms_random.STRING('z',10) NAME , SYSDATE + dbms_random.VALUE * 10 dt FROM dual
+CONNECT BY ROWNUM <=10;
+
+CREATE INDEX idx_nonfbi ON t_fbi(dt);
+
+DROP INDEX idx_fbi_1;
+CREATE INDEX idx_fbi_1 ON t_fbi(trunc(dt));
+
+SELECT * FROM t_fbi WHERE trunc(dt) = to_date('2006-09-21','yyyy-mm-dd') ;
+
+-- 不建议使用
+SELECT * FROM t_fbi WHERE to_char(dt, 'yyyy-mm-dd') = '2006-09-21';
+
+-- LOOP中的COMMIT/ROLLBACK
+DROP TABLE t_loop PURGE;
+create TABLE t_loop AS SELECT * FROM user_objects WHERE 1=2;
+
+SELECT * FROM t_loop;
+
+-- 逐行提交
+DECLARE
+BEGIN
+  FOR cur IN (SELECT * FROM user_objects) LOOP
+    INSERT INTO t_loop VALUES cur;
+    COMMIT;
+  END LOOP;
+END;
+
+-- 模拟批量提交
+DECLARE
+  v_count NUMBER;
+BEGIN
+  FOR cur IN (SELECT * FROM user_objects) LOOP
+    INSERT INTO t_loop VALUES cur;
+    v_count := v_count + 1;
+    IF v_count >= 100 THEN
+      COMMIT;
+    END IF;
+  END LOOP;
+  COMMIT;
+END;
+
+-- 真正的批量提交
+DECLARE
+  CURSOR cur IS
+    SELECT * FROM user_objects;
+  TYPE rec IS TABLE OF user_objects%ROWTYPE;
+  recs rec;
+BEGIN
+  OPEN cur;
+  WHILE (TRUE) LOOP
+    FETCH cur BULK COLLECT
+      INTO recs LIMIT 100;
+    -- forall 实现批量
+    FORALL i IN 1 .. recs.COUNT
+      INSERT INTO t_loop VALUES recs (i);
+    COMMIT;
+    EXIT WHEN cur%NOTFOUND;
+  END LOOP;
+  CLOSE cur;
+END;
+
+-- 悲观锁定/乐观锁定
+DROP TABLE t_lock PURGE;
+CREATE TABLE t_lock AS SELECT 1 ID FROM dual;
+
+SELECT * FROM t_lock;
+
+-- 常见的实现逻辑，隐含bug
+DECLARE
+  v_cnt NUMBER;
+BEGIN
+  -- 这里有并发性的bug
+  SELECT MAX(ID) INTO v_cnt FROM t_lock;
+
+  -- here for other operation
+  v_cnt := v_cnt + 1;
+  INSERT INTO t_lock (ID) VALUES (v_cnt);
+  COMMIT;
+END;
+
+-- 高并发环境下，安全的实现逻辑
+DECLARE
+  v_cnt NUMBER;
+BEGIN
+  -- 对指定的行取得lock
+  SELECT ID INTO v_cnt FROM t_lock WHERE ID=1 FOR UPDATE;
+  -- 在有lock的情况下继续下面的操作
+  SELECT MAX(ID) INTO v_cnt FROM t_lock;
+
+  -- here for other operation
+  v_cnt := v_cnt + 1;
+  INSERT INTO t_lock (ID) VALUES (v_cnt);
+  COMMIT; --提交并且释放lock
+END;
+
+-- 硬解析/软解析
+DROP TABLE t_hard PURGE;
+CREATE TABLE t_hard (ID INT);
+
+SELECT * FROM t_hard;
+
+DECLARE
+  sql_1   VARCHAR2(200);
+BEGIN
+  -- hard parse
+  -- java中的同等语句是 Statement.execute()
+  FOR i IN 1 .. 1000 LOOP
+    sql_1 := 'insert into t_hard(id) values(' || i || ')';
+    EXECUTE IMMEDIATE sql_1;
+  END LOOP;
+  COMMIT;
+
+  -- soft parse
+  --java中的同等语句是 PreparedStatement.execute()
+  sql_1   := 'insert into t_hard(id) values(:id)';
+  FOR i IN 1 .. 1000 LOOP
+    EXECUTE IMMEDIATE sql_1
+      USING i;
+  END LOOP;
+  COMMIT;
+END;
+
+
+
+-- 正确的分页算法
+SELECT *
+  FROM (SELECT a.*, ROWNUM rn
+          FROM (SELECT * FROM t_employees ORDER BY first_name) a
+         WHERE ROWNUM <= 500)
+WHERE rn > 480 ;
+
+-- 分页算法(why not this one)
+SELECT a.*, ROWNUM rn
+  FROM (SELECT * FROM t_employees ORDER BY first_name) a
+WHERE ROWNUM <= 500 AND ROWNUM > 480;
+
+-- 分页算法(why not this one)
+SELECT b.*
+  FROM (SELECT a.*, ROWNUM rn
+          FROM t_employees a
+         WHERE ROWNUM < = 500
+         ORDER BY first_name) b
+WHERE b.rn > 480;
+
+-- OLAP
+-- 小计合计
+SELECT CASE
+         WHEN a.deptno IS NULL THEN
+          '合计'
+         WHEN a.deptno IS NOT NULL AND a.empno IS NULL THEN
+          '小计'
+         ELSE
+          '' || a.deptno
+       END deptno,
+       a.empno,
+       a.ename,
+       SUM(a.sal) total_sal
+  FROM scott.emp a
+GROUP BY GROUPING SETS((a.deptno),(a.deptno, a.empno, a.ename),());
+
+-- 分组排序
+SELECT a.deptno,
+       a.empno,
+       a.ename,
+       a.sal,
+       -- 可跳跃的rank
+       rank() over(PARTITION BY a.deptno ORDER BY a.sal DESC) r1,
+       -- 密集型rank
+       dense_rank() over(PARTITION BY a.deptno ORDER BY a.sal DESC) r2,
+       -- 不分组排序
+       rank() over(ORDER BY sal DESC) r3
+  FROM scott.emp a
+  ORDER BY a.deptno,a.sal DESC;
+  
+-- 当前行数据和前/后n行的数据比较
+SELECT a.empno,
+       a.ename,
+       a.sal,
+       -- 上面一行
+       lag(a.sal) over(ORDER BY a.sal DESC) lag_1,
+       -- 下面三行
+       lead(a.sal, 3) over(ORDER BY a.sal DESC) lead_3
+  FROM scott.emp a
+ORDER BY a.sal DESC;
